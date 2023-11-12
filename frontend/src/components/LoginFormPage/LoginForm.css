@@ -46,6 +46,17 @@ body {
     width: 100%;
     border-radius: 4px;
   }
+
+  /* Add to your existing CSS file */
+  #demo-login-button {
+    background-color: #4caf50; /* Green color, adjust as needed */
+    color: white;
+    font-size: 17px;
+    margin-bottom: 10px;
+    width: 75%;
+    border-radius: 4px;
+  }
+  
   
   #right-content input {
     font-size: 17px;

@@ -32,6 +32,29 @@ const LoginPageForm = () => {
           });
     };
 
+    const handleDemoLogin = async () => {
+      // Define your demo user credentials
+      const demoUser = {
+        email: "demo@user.io",
+        password: "password",
+      };
+  
+      try {
+        // Dispatch the login action with demo user credentials
+        await dispatch(sessionActions.login(demoUser));
+      } catch (res) {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      }
+    };
+
     
 
     return (
@@ -67,6 +90,10 @@ const LoginPageForm = () => {
             </label>
             <button type="submit" id="login-button">Log In</button>
           </form>
+
+          <button type="button" id="demo-login-button" onClick={handleDemoLogin}>
+            Demo User
+          </button>
 
           <SignUpFormModal />
         </div>
