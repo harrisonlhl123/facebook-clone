@@ -16,15 +16,15 @@ body {
   }
   
   #right-content {
-    width: 15%;
-    padding: 20px;
+    width: 30%;
+    padding: 0px 20px 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: white;
-    margin-right: 20px; /* Add margin to create space between #left-content and #right-content */
+    margin-right: 20px;
   }
   
   #left-content h1 {
@@ -50,11 +50,11 @@ body {
 
   /* Add to your existing CSS file */
   #demo-login-button {
-    background-color: #4caf50; /* Green color, adjust as needed */
+    background-color: #42b72a; /* Green color, adjust as needed */
     color: white;
     font-size: 17px;
     margin-bottom: 10px;
-    width: 75%;
+    width: 50%;
     border-radius: 4px;
     height: 40px;
   }
@@ -64,8 +64,14 @@ body {
     font-size: 17px;
     margin-bottom: 10px; /* Adjust as needed */
     width: 100%;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid rgb(221, 216, 216);
   }
+
+  .login-email-password input{
+    height: 40px;
+  }
+
+
   
   

@@ -68,26 +68,28 @@ const LoginPageForm = () => {
             <ul>
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <label>
-              {/* Email */}
-              <input
-                type="text"
-                value={email}
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              {/* Password */}
-              <input
-                type="password"
-                value={password}
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </label>
+            <div className="login-email-password">
+              <label>
+                {/* Email */}
+                <input
+                  type="text"
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                {/* Password */}
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
             <button type="submit" id="login-button">Log In</button>
           </form>
 

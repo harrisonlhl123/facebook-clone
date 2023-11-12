@@ -8,14 +8,80 @@ p {
     font-size: 15px;
     font-family: Helvetica, Arial, sans-serif;
     color: grey;
+    margin-bottom: 0;
 }
 
 #create-button {
     background-color: #42b72a;;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 10px; /* Adjust as needed */
-    width: 75%;
+    width: 50%;
     border-radius: 4px;
     height: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.name-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.name-inputs input {
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid rgb(236, 226, 226);
+    width: 150px;
+}
+  
+#signup-button {
+    background-color: #42b72a;;
+    color: white;
+    font-size: 17px;
+    margin-bottom: 10px; /* Adjust as needed */
+    width: 50%;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.email-password {
+    width: 320px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid rgb(236, 226, 226);
+}
+
+.birthday {
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+}
+
+.birthday select{
+    height: 35px;
+    width: 100px;
+    border-radius: 8px;
+    border: 1px solid rgb(236, 226, 226);
+}
+
+.gender {
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+}
+
+.gender label {
+    height: 35px;
+    width: 100px;
+    border-radius: 8px;
+    border: 1px solid rgb(236, 226, 226);
+    display: flex;
+    align-items: center;
 }

@@ -82,29 +82,31 @@ function SignUpForm() {
         <ul>
           {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <label>
-          {/* First Name */}
-          <input
-            type="text"
-            value={first_name}
-            placeholder="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          {/* Last Name */}
-          <input
-            type="text"
-            value={last_name}
-            placeholder="Last Name"
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </label>
+        <div className="name-inputs">
+          <label>
+            {/* First Name */}
+            <input
+              type="text"
+              value={first_name}
+              placeholder="First Name"
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            {/* Last Name */}
+            <input
+              type="text"
+              value={last_name}
+              placeholder="Last Name"
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
         <label>
           {/* Email */}
-          <input
+          <input className="email-password"
             type="text"
             value={email}
             placeholder="Email"
@@ -114,7 +116,7 @@ function SignUpForm() {
         </label>
         <label>
           {/* Password */}
-          <input
+          <input className="email-password"
             type="password"
             value={password}
             placeholder="New Password"
@@ -124,47 +126,60 @@ function SignUpForm() {
         </label>
         <label>
           Birthday
-          <select value={birthday.month} onChange={(e) => setBirthday({ ...birthday, month: e.target.value })}>
-            <option value="">Month</option>
-            {monthOptions.map((month) => (
-              <option key={month} value={month}>{month}</option>
-            ))}
-          </select>
-          <select value={birthday.day} onChange={(e) => setBirthday({ ...birthday, day: e.target.value })}>
-            <option value="">Day</option>
-            {dayOptions.map((day) => (
-              <option key={day} value={day}>{day}</option>
-            ))}
-          </select>
-          <select value={birthday.year} onChange={(e) => setBirthday({ ...birthday, year: e.target.value })}>
-            <option value="">Year</option>
-            {yearOptions.map((year) => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-          </select>
+          <div className="birthday">
+            <select value={birthday.month} onChange={(e) => setBirthday({ ...birthday, month: e.target.value })}>
+              <option value="">Month</option>
+              {monthOptions.map((month) => (
+                <option key={month} value={month}>{month}</option>
+              ))}
+            </select>
+            <select value={birthday.day} onChange={(e) => setBirthday({ ...birthday, day: e.target.value })}>
+              <option value="">Day</option>
+              {dayOptions.map((day) => (
+                <option key={day} value={day}>{day}</option>
+              ))}
+            </select>
+            <select value={birthday.year} onChange={(e) => setBirthday({ ...birthday, year: e.target.value })}>
+              <option value="">Year</option>
+              {yearOptions.map((year) => (
+                <option key={year} value={year}>{year}</option>
+              ))}
+            </select>
+          </div>
         </label>
         <label>
           Gender
-          <label>
-            <input
-              type="radio"
-              value="male"
-              checked={gender === "male"}
-              onChange={() => setGender("male")}
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="female"
-              checked={gender === "female"}
-              onChange={() => setGender("female")}
-            />
-            Female
-          </label>
+          <div className="gender">
+            <label>
+              <input
+                type="radio"
+                value="male"
+                checked={gender === "male"}
+                onChange={() => setGender("male")}
+              />
+              Male
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="female"
+                checked={gender === "female"}
+                onChange={() => setGender("female")}
+              />
+              Female
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="custom"
+                checked={gender === "custom"}
+                onChange={() => setGender("custom")}
+              />
+              Custom
+            </label>
+          </div>
         </label>
-        <button type="submit">Create new account</button>
+          <button id="signup-button" type="submit">Sign Up</button>
       </form>
     </>
   );
