@@ -1,0 +1,19 @@
+h1 {
+    font-size: 32px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: grey;
+}
+
+button {
+    background-color: #42b72a;;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px; /* Adjust as needed */
+    width: 100%;
+  }

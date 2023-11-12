@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
+import SignUpFormModal from "../SignUpFormModal";
 
 const LoginPageForm = () => {
     const dispatch = useDispatch();
@@ -34,33 +35,43 @@ const LoginPageForm = () => {
     
 
     return (
-        <>
+      <div id="login-container">
+        <div id="left-content">
+          <h1>facebook</h1>
+          <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div id="right-content">
           <form onSubmit={handleSubmit}>
             <ul>
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
             <label>
-              Email
+              {/* Email */}
               <input
                 type="text"
                 value={email}
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </label>
             <label>
-              Password
+              {/* Password */}
               <input
                 type="password"
                 value={password}
+                placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </label>
-            <button type="submit">Log In</button>
+            <button type="submit" id="login-button">Log In</button>
           </form>
-        </>
-    );
+
+          <SignUpFormModal />
+        </div>
+      </div>
+  );
 }
 
 export default LoginPageForm;

@@ -77,42 +77,47 @@ function SignUpForm() {
   return (
     <>
       <h1>Sign Up</h1>
+      <p>It's quick and easy</p>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
         <label>
-          First Name
+          {/* First Name */}
           <input
             type="text"
             value={first_name}
+            placeholder="First Name"
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </label>
         <label>
-          Last Name
+          {/* Last Name */}
           <input
             type="text"
             value={last_name}
+            placeholder="Last Name"
             onChange={(e) => setLastName(e.target.value)}
             required
           />
         </label>
         <label>
-          Email
+          {/* Email */}
           <input
             type="text"
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
         <label>
-          Password
+          {/* Password */}
           <input
             type="password"
             value={password}
+            placeholder="New Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
@@ -159,7 +164,7 @@ function SignUpForm() {
             Female
           </label>
         </label>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Create new account</button>
       </form>
     </>
   );
