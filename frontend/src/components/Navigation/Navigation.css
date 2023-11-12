@@ -1,0 +1,42 @@
+/* Add to your existing CSS file */
+.profile-button-container {
+    position: fixed;
+    top: 10px; /* Adjust the top distance as needed */
+    right: 10px; /* Adjust the right distance as needed */
+    z-index: 999; /* Ensure the button stays on top */
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .profile-dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%; /* Position dropdown below the button */
+    right: 0; /* Align dropdown with the button */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    text-align: left;
+  }
+  
+  .profile-dropdown li {
+    padding: 10px;
+  }
+  
+  .profile-dropdown button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
