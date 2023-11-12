@@ -44,12 +44,14 @@ body {
     font-size: 20px;
     margin-bottom: 10px; /* Adjust as needed */
     width: 100%;
+    border-radius: 4px;
   }
   
   #right-content input {
     font-size: 17px;
     margin-bottom: 10px; /* Adjust as needed */
     width: 100%;
+    border-radius: 4px;
   }
   
   
