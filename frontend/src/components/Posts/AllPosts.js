@@ -1,14 +1,30 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import OnePost from "./OnePost";
+import { getPosts, fetchPosts } from '../../store/posts';
+import MakePosts from './MakePosts';
 import "./Posts.css"
 
 
 function AllPosts() {
 
-    return (
-        <div>
-            <h1>All posts will be here</h1>
-        </div>
-    )
+    const dispatch = useDispatch();
+    const posts = useSelector(getPosts);
 
+    useEffect(() => {
+        dispatch(fetchPosts());
+    }, [])
+
+    return(
+        <>
+            <MakePosts />
+            <ul>
+                {posts.map(post => {
+                    return <OnePost post={post} />
+                })}
+            </ul>
+        </>
+    )
 }
 
 export default AllPosts;
