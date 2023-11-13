@@ -17,8 +17,8 @@ function AllPosts() {
     return(
         <>
             <ul>
-                {posts.map(post => {
-                    return <OnePost post={post} />
+                {Object.values(posts).map(post => {
+                    return <OnePost post={post} key={post.id}/>
                 })}
             </ul>
         </>
