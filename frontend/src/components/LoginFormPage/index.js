@@ -35,7 +35,7 @@ const LoginPageForm = () => {
     const handleDemoLogin = async () => {
       // Define your demo user credentials
       const demoUser = {
-        email: "harrison@aa.io",
+        email: "demo@user.io",
         password: "password",
       };
   

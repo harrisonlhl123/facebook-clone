@@ -48,9 +48,8 @@ body {
     height: 50px;
   }
 
-  /* Add to your existing CSS file */
   #demo-login-button {
-    background-color: #42b72a; /* Green color, adjust as needed */
+    background-color: #42b72a;
     color: white;
     font-size: 17px;
     margin-bottom: 10px;

@@ -37,6 +37,11 @@ ApplicationRecord.transaction do
           password: 'password'
         )
       end
+
+    Post.create!(
+      body: "First post on Facebook clone!",
+      author_id: 1
+    )
   
     puts "Done!"
   end

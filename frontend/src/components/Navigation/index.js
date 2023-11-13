@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import SignUpFormModal from '../SignUpFormModal';
 import LoginPageForm from '../LoginFormPage';
 import './Navigation.css';
+import NewsFeed from '../NewsFeed';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -12,7 +13,10 @@ function Navigation() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <ProfileButton user={sessionUser} />
+        <NewsFeed />
+      </>
     );
   } else {
     sessionLinks = (

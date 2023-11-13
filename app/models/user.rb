@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_many :posts
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user&.authenticate(password)

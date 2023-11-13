@@ -3,16 +3,23 @@ import { Route, Switch } from "react-router-dom";
 // import SignupFormPage from "./components/SignUpFormModal/SignUpForm";
 import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
+import NewsFeed from "./components/NewsFeed";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useSelector } from "react-redux";
 
 function App() {
+  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
+  if(!sessionUser) history.push('/');
+
   return (
     <>
       <Navigation />
         <Switch>
-          <Route path="/login" >
+          <Route exact path="/login" >
             <LoginFormPage />
           </Route>
-          {/* <Route path="/signup">
+          {/* <Route exact path="/">
             <SignupFormPage />
           </Route> */}
         </Switch>
