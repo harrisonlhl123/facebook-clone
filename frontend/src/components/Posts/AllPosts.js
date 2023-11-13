@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import OnePost from "./OnePost";
 import { getPosts, fetchPosts } from '../../store/posts';
-import MakePosts from './MakePosts';
 import "./Posts.css"
 
 
@@ -17,7 +16,6 @@ function AllPosts() {
 
     return(
         <>
-            <MakePosts />
             <ul>
                 {posts.map(post => {
                     return <OnePost post={post} />

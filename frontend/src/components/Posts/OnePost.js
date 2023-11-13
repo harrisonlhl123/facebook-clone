@@ -14,7 +14,8 @@ const OnePost = ({post}) => {
 
     return(
         <li>
-            <Link to={`/posts/${post.id}`}>{post.body}</Link>
+            <p>{post.authorId}</p>
+            <h3>{post.body}</h3>
             <Link to={`/posts/${post.id}/edit`}>Edit</Link>
             <button onClick={handleDelete}>Delete</button>
         </li>

@@ -42,6 +42,11 @@ ApplicationRecord.transaction do
       body: "First post on Facebook clone!",
       author_id: 1
     )
+
+    Post.create!(
+      body: "Happy Thanksgiving!",
+      author_id: 2
+    )
   
     puts "Done!"
   end
