@@ -1,33 +1,40 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { createPost } from '../../store/posts';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import "./Posts.css"
 
 
 function MakePosts() {
     const dispatch = useDispatch();
-    // const user = useSelector((state) => state.session.user);
+    const {postId} = useParams();
+    const post = useSelector(getPost(postId));
+    const [body, setBody] = useState(postId ? post.body: "");
 
-    const [body, setBody] = useState("");
+    useEffect(() => {
+        if(postId){
+            dispatch(fetchPost(postId));
+        }
+    }, [postId])
 
     function changeBody(e) {
         setBody(e.target.value);
     }
 
-    function handleSubmit(e) {
-        // const authorId = user.id;
-        dispatch(createPost({body}));
+    function handleSubmit(e){
+
+        dispatch(postId ? updatePost({body, id: postId}) : createPost({body}));
     }
 
     return(
         <>
-            <h1>{"Create Post"}</h1>
+            <h1>{postId ? "Update Post" : "Create Post"}</h1>
             <form onSubmit={handleSubmit}>
                 <label>Body
-                    <textarea onChange={changeBody} value={body} placeholder='type something'></textarea>
+                    <textarea onChange={changeBody}>{body}</textarea>
                 </label>
 
-                <input type="submit" value="Create Post" />
+                <input type="submit" value={postId ? "Update Post" : "Create Post"} />
             </form>
         </>
     )

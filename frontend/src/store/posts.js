@@ -22,7 +22,7 @@ const removePost = postId => ({
 export const getPost = postId => state => state.posts ? state.posts[postId] : null;
 
 
-export const getPosts = state => state.posts ? state.posts : [];
+export const getPosts = state => state.posts ? Object.values(state.posts) : [];
 
 export const fetchPosts = () => async (dispatch) => {
     const response = await csrfFetch('api/posts');
@@ -45,10 +45,10 @@ export const fetchPost = (postId) => async (dispatch) => {
 export const createPost = (post) => async (dispatch) => {
     const response = await csrfFetch('api/posts', {
         method: 'POST',
-        body: JSON.stringify(post)
-        // headers: {
-        //     "Content-Type": "application/json"
-        // }
+        body: JSON.stringify(post),
+        headers: {
+            "Content-Type": "application/json"
+        }
     });
 
     if (response.ok){
