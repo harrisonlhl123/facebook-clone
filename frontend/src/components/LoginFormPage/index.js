@@ -60,8 +60,8 @@ const LoginPageForm = () => {
     return (
       <div id="login-container">
         <div id="left-content">
-          <h1>facebook</h1>
-          <p>Connect with friends and the world around you on Facebook.</p>
+          <h1>instabook</h1>
+          <p>Connect with friends and the world around you on Instabook.</p>
         </div>
         <div id="right-content">
           <form onSubmit={handleSubmit}>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createPost } from '../../store/posts';
 import "./Posts.css"
 
@@ -21,10 +21,9 @@ function MakePosts() {
 
     return(
         <>
-            <h1>{"Create Post"}</h1>
             <form onSubmit={handleSubmit}>
-                <label>Body
-                    <textarea onChange={changeBody} value={body} placeholder='type something'></textarea>
+                <label>
+                    <textarea onChange={changeBody} value={body} placeholder="What's on your mind?"></textarea>
                 </label>
 
                 <input type="submit" value="Create Post" />

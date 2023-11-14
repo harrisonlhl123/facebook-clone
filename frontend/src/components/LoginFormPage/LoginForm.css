@@ -74,6 +74,12 @@ body {
   #login-errors {
     color: red;
     list-style-type: none;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 0;
   }
 
 
