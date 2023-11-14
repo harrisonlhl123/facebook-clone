@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost } from '../../store/posts';
 import "./Posts.css"
+import EditPosts from './EditPosts';
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
@@ -17,12 +18,24 @@ const OnePost = ({post}) => {
         }
     }
 
+    function handleEdit(e) {
+        e.preventDefault();
+
+       return (
+            <EditPosts />
+       )
+    }
+
     return(
         <div className='one-post'>
-            <h3>{post.author}</h3>
+            <h3>{`${post.author} ${post.author2}`}</h3>
+
             <p>{post.body}</p>
+
             <br></br>
-            <Link to={`/posts/${post.id}/edit`}>Edit</Link>
+
+            <button onClick={handleEdit}>Edit</button>
+
             <button onClick={handleDelete}>Delete</button>
         </div>
     )
