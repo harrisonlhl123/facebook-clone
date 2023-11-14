@@ -20,15 +20,13 @@ function MakePosts() {
     }
 
     return(
-        <>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <textarea onChange={changeBody} value={body} placeholder="What's on your mind?"></textarea>
-                </label>
+        <form onSubmit={handleSubmit} >
+            <label>
+                <textarea onChange={changeBody} value={body} placeholder="What's on your mind?"></textarea>
+            </label>
 
-                <input type="submit" value="Create Post" />
-            </form>
-        </>
+            <input type="submit" value="Create Post" />
+        </form>
     )
 }
 

@@ -20,7 +20,8 @@ const OnePost = ({post}) => {
     return(
         <div className='one-post'>
             <h3>{post.author}</h3>
-            <h3>{post.body}</h3>
+            <p>{post.body}</p>
+            <br></br>
             <Link to={`/posts/${post.id}/edit`}>Edit</Link>
             <button onClick={handleDelete}>Delete</button>
         </div>
