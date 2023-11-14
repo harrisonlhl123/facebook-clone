@@ -1,5 +1,6 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom/client';
+// import * as ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from "./context/Modal";
@@ -30,14 +31,22 @@ function Root() {
 }
 
 const renderApplication = () => {
-  ReactDOM.createRoot(
-    document.getElementById('root')
-  ).render(
+  ReactDOM.render(
     <React.StrictMode>
       <Root />
-    </React.StrictMode>
-  )
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 }
+// const renderApplication = () => {
+//   ReactDOM.createRoot(
+//     document.getElementById('root')
+//   ).render(
+//     <React.StrictMode>
+//       <Root />
+//     </React.StrictMode>
+//   )
+// }
 
 if (
   sessionStorage.getItem("currentUser") === null ||
