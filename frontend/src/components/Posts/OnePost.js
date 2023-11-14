@@ -30,7 +30,7 @@ const OnePost = ({post}) => {
         <div className='one-post'>
             <h3>{`${post.author} ${post.author2}`}</h3>
 
-            <p>{post.body}</p>
+            <p id="posts-body">{post.body}</p>
 
             <br></br>
 
