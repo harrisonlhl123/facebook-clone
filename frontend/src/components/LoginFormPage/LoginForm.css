@@ -71,6 +71,11 @@ body {
     height: 40px;
   }
 
+  #login-errors {
+    color: red;
+    list-style-type: none;
+  }
+
 
   
   

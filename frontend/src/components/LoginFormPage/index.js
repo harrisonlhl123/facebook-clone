@@ -66,7 +66,7 @@ const LoginPageForm = () => {
         <div id="right-content">
           <form onSubmit={handleSubmit}>
             <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
+              {errors.map(error => <li id="login-errors" key={error}>{error}</li>)}
             </ul>
             <div className="login-email-password">
               <label>
