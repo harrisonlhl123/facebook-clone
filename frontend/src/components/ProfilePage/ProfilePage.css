@@ -1,0 +1,65 @@
+#profile-page {
+    max-width: 900px; /* Set the maximum width for the profile page */
+    margin: 0 auto; /* Center the profile page */
+    padding: 20px; /* Add padding for space */
+}
+  
+
+#cover-photo {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid red;
+    height: 150px;
+    position: relative;
+    z-index: 1;
+}
+  
+#profile-info-container {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+  
+#profile-pic {
+    margin-top: -40px;
+    border-radius: 50%;
+    padding: 20px;
+    border: 1px solid red;
+    position: relative; 
+    z-index: 2;
+}
+  
+#profile-pic i {
+    font-size: 50px; /* Adjust as needed */
+}
+  
+#profile-info h1 {
+    margin: 0; /* Remove default margin */
+}
+
+#profile-container {
+    display: flex;
+}
+  
+#profile-left {
+    width: 30%;
+    float: left;
+    padding: 20px; /* Adjust as needed */
+    border: 1px solid red;
+}
+  
+#profile-right {
+    width: 70%;
+    float: left;
+    padding: 20px; /* Adjust as needed */
+    border: 1px solid red;
+}
+  
+/* Clear the float to ensure proper layout */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
