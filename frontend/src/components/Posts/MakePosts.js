@@ -22,7 +22,7 @@ function MakePosts() {
     return(
         <form onSubmit={handleSubmit} >
             <label>
-                <textarea onChange={changeBody} value={body} placeholder="What's on your mind?"></textarea>
+                <textarea onChange={changeBody} value={body} placeholder="What's on your mind?" id="text-area-post"></textarea>
             </label>
 
             <input type="submit" value="Create Post" />

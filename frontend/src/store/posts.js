@@ -25,7 +25,7 @@ export const getPost = postId => state => state.posts ? state.posts[postId] : nu
 export const getPosts = state => state.posts ? state.posts : [];
 
 export const fetchPosts = () => async (dispatch) => {
-    const response = await csrfFetch('api/posts');
+    const response = await csrfFetch('/api/posts');
 
     if(response.ok){
         const posts = await response.json();
@@ -34,7 +34,7 @@ export const fetchPosts = () => async (dispatch) => {
 }
 
 export const fetchPost = (postId) => async (dispatch) => {
-    const response = await csrfFetch(`api/posts/${postId}`);
+    const response = await csrfFetch(`/api/posts/${postId}`);
 
     if(response.ok){
         const post = await response.json();
@@ -43,7 +43,7 @@ export const fetchPost = (postId) => async (dispatch) => {
 }
 
 export const createPost = (post) => async (dispatch) => {
-    const response = await csrfFetch('api/posts', {
+    const response = await csrfFetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify(post)
         // headers: {
@@ -58,22 +58,24 @@ export const createPost = (post) => async (dispatch) => {
 }
 
 export const updatePost = (post) => async (dispatch) => {
-    const response = await csrfFetch(`api/posts/${post.id}`, {
+    const response = await csrfFetch(`/api/posts/${post.id}`, {
         method: 'PATCH',
-        body: JSON.stringify(post),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        body: JSON.stringify(post)
+        // headers: {
+        //     "Content-Type": "application/json"
+        // }
     });
 
     if (response.ok){
         const post = await response.json();
         dispatch(receivePost(post));
     }
+
+    return response;
 }
 
 export const deletePost = (postId) => async (dispatch) => {
-    const response = await csrfFetch(`api/posts/${postId}`, {
+    const response = await csrfFetch(`/api/posts/${postId}`, {
         method: 'DELETE'
     })
 

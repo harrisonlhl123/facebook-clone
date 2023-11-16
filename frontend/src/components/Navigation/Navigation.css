@@ -39,4 +39,28 @@
     color: #333;
     cursor: pointer;
   }
+
+  #top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px; /* Add padding for space */
+    background-color: white;
+  }
   
+  .left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  #logo {
+    height: 40px; /* Set a specific height for the logo */
+    margin-right: 10px; /* Add margin to create space between the image and the search bar */
+  }
+
+  #search-bar {
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding-left: 10px;
+  }

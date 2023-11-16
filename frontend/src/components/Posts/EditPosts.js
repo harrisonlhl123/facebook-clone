@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, updatePost } from '../../store/posts';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const EditPosts = () => {
+const EditPosts = ({postId, setShowModal}) => {
+
     const dispatch = useDispatch();
-    const {postId} = useParams();
+    const history = useHistory();
     const post = useSelector(getPost(postId));
-    const [body, setBody] = useState("");
+    const [body, setBody] = useState(post.body);
 
     useEffect(() => {
         dispatch(fetchPost(postId));
@@ -17,8 +19,9 @@ const EditPosts = () => {
         setBody(e.target.value);
     }
 
-    function handleSubmit(e){
-        dispatch(updatePost({body, id: postId}));
+    async function handleSubmit(e){
+        e.preventDefault();
+        dispatch(updatePost({body, id: postId})).then(() => {setShowModal(false); history.push("/")});
     }
 
     return(
@@ -26,7 +29,7 @@ const EditPosts = () => {
             <h1>{"Update Post"}</h1>
             <form onSubmit={handleSubmit}>
                 <label>Body
-                    <textarea onChange={changeBody}>{body}</textarea>
+                    <textarea onChange={changeBody} value={body}></textarea>
                 </label>
 
                 <input type="submit" value={"Update Post"} />

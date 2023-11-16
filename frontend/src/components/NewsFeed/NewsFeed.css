@@ -11,6 +11,7 @@
 #socials, #friends {
     width: 15%;
     border: 1px solid red;
+    padding: 10px;
 }
   
 #posts-and-posting {

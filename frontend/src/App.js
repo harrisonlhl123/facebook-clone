@@ -6,6 +6,8 @@ import Navigation from "./components/Navigation";
 import NewsFeed from "./components/NewsFeed";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
+import EditPosts from "./components/Posts/EditPosts";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
   const history = useHistory();
@@ -18,6 +20,11 @@ function App() {
         <Switch>
           <Route exact path="/login" >
             <LoginFormPage />
+          </Route>
+          {/* <Route exact path="/posts/:postId/edit" component={EditPosts} /> */}
+          <Route path="/users/:userId" component={ProfilePage}/>
+          <Route exact path="/">
+            <NewsFeed />
           </Route>
           {/* <Route exact path="/">
             <SignupFormPage />
