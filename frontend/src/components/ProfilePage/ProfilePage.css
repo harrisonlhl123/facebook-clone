@@ -12,6 +12,7 @@
     height: 150px;
     position: relative;
     z-index: 1;
+    background-color: white;
 }
   
 #profile-info-container {
@@ -47,6 +48,14 @@
     float: left;
     padding: 20px; /* Adjust as needed */
     border: 1px solid red;
+}
+
+#bio {
+    background-color: white;
+}
+
+#profile-friends-list {
+    background-color: white;
 }
   
 #profile-right {

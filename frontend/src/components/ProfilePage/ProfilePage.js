@@ -31,8 +31,12 @@ const ProfilePage = () => {
             </div>
             <div id="profile-container">
                 <div id="profile-left">
-                    <h3>Bio will be here</h3>
-                    <FriendsList />
+                    <div id="bio">
+                        <h3>Bio will be here</h3>
+                    </div>
+                    <div id="profile-friends-list">
+                        <FriendsList />
+                    </div>
                 </div>
                 <div id="profile-right">
                     <MakePosts />

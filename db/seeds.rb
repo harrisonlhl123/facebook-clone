@@ -36,7 +36,7 @@ ApplicationRecord.transaction do
           gender: ['Male', 'Female'].sample,
           password: 'password'
         )
-      end
+    end
 
     Post.create!(
       body: "First post on Facebook clone!",
@@ -47,6 +47,31 @@ ApplicationRecord.transaction do
       body: "Happy Thanksgiving!",
       author_id: 2
     )
-  
+
+
+    user1 = User.find(1)
+    user2 = User.find(2)
+    user3 = User.find(3)
+    user4 = User.find(4)
+    user5 = User.find(5)
+    user6 = User.find(6)
+    user7 = User.find(7)
+    user8 = User.find(8)
+    user9 = User.find(9)
+    user10 = User.find(10)
+    
+    # Manually create friendships
+    Friend.create!(user: user1, friend: user2)
+    Friend.create!(user: user1, friend: user3)
+    Friend.create!(user: user1, friend: user4)
+    Friend.create!(user: user1, friend: user5)
+    Friend.create!(user: user1, friend: user6)
+    
+    Friend.create!(user: user2, friend: user3)
+    Friend.create!(user: user2, friend: user4)
+    Friend.create!(user: user2, friend: user5)
+    Friend.create!(user: user2, friend: user6)
+    Friend.create!(user: user2, friend: user7)
+    
     puts "Done!"
   end
