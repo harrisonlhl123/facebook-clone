@@ -23,7 +23,7 @@ const ProfilePage = () => {
             </div>
             <div id="profile-info-container">
                 <div id="profile-pic">
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                 </div>
                 <div id="profile-info">
                     <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
@@ -43,7 +43,7 @@ const ProfilePage = () => {
                     <AllPosts />
                 </div>
             </div>
-            <div class="clearfix"></div>
+            <div className="clearfix"></div>
 
             <Link to="/">Back</Link>
         </div>

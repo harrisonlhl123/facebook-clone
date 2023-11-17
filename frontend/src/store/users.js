@@ -1,21 +1,38 @@
 import csrfFetch from "./csrf.js";
 
 export const RECEIVE_USER = "users/RECEIVE_USER";
+export const RECEIVE_USERS = "users/RECEIVE_USERS";
 
-const receiveUser = user => ({
+const receiveUser = payload => ({
     type: RECEIVE_USER,
-    user
+    payload
+})
+
+const receiveUsers = users => ({
+    type: RECEIVE_USERS,
+    users
 })
 
 export const getUser = userId => state => state.users ? state.users[userId] : null;
+
+export const getUsers = state => state.users ? Object.values(state.users) : [];
 
 export const fetchUser = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/users/${userId}`);
 
     if(response.ok){
         const user = await response.json();
-        debugger
-        dispatch(receiveUser(user.user));
+        // debugger
+        dispatch(receiveUser(user));
+    }
+}
+
+export const fetchUsers = () => async (dispatch) => {
+    const response = await fetch('/api/users');
+
+    if(response.ok){
+        const users = await response.json();
+        dispatch(receiveUsers(users));
     }
 }
 
@@ -24,7 +41,9 @@ const usersReducer = (state = {}, action) => {
 
     switch(action.type){
         case RECEIVE_USER:
-            return {...newState, [action.user.id]: action.user};
+            return {...newState, ...action.payload.users};
+        case RECEIVE_USERS:
+            return {...newState, ...action.users};
         default:
             return state;
     }
