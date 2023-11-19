@@ -8,7 +8,7 @@ import "./Posts.css"
 function MakePosts() {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
-    const userId = currentUser.id
+    const userId = currentUser?.id
     const user = useSelector(getUser(userId))
 
 

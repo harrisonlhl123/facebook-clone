@@ -31,9 +31,9 @@ function ProfileButton({ user }) {
   return (
     <div className="profile-button-container">
       <button onClick={openMenu}>
-        <div style={{ fontSize: "50px" }}>
-          <i className="fa-solid fa-user-circle" />
-          {/* <img src={`${user?.pfp}`} /> */}
+        <div>
+          {/* <i className="fa-solid fa-user-circle" /> */}
+          <img src={`${user?.pfp}`} id="small-profile-pic"/>
         </div>
       </button>
       {showMenu && (

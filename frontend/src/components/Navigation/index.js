@@ -8,6 +8,7 @@ import './Navigation.css';
 import NewsFeed from '../NewsFeed';
 import logo from "../images/logo.png"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { getUser } from '../../store/users';
 import SearchBar from './SearchBar';
 import homeButton from "../../components/images/svg/homeButton.svg"
 import tvButton from "../../components/images/svg/tvButton.svg"
@@ -17,7 +18,10 @@ import gamingButton from "../../components/images/svg/gamingButton.svg"
 
 
 function Navigation() {
-  const sessionUser = useSelector(state => state.session.user);
+  let sessionUser = useSelector(state => state.session.user);
+  // const currentUser = useSelector((state) => state.session.user);
+  const userId = sessionUser?.id
+  const user = useSelector(getUser(userId))
 
   let sessionLinks;
   if (sessionUser) {
@@ -35,7 +39,7 @@ function Navigation() {
             <img src={groupButton} style={{width: "30px"}}></img>
             <img src={gamingButton} style={{width: "30px"}}></img>
           </div>
-          <ProfileButton user={sessionUser} />
+          <ProfileButton user={user} />
         </div>
         {/* <NewsFeed /> */}
       </>
