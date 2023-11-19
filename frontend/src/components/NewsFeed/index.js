@@ -4,7 +4,6 @@ import MakePosts from "../Posts/MakePosts"
 import "./NewsFeed.css"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import FriendsList from "../Friends/FriendsList"
-import homeButton from "../../components/images/svg/homeButton.svg"
 
 
 function NewsFeed() {
@@ -25,7 +24,6 @@ function NewsFeed() {
                             <i className="fa-brands fa-linkedin"></i>
                         </a>
                     </div>
-                    <img src={homeButton} style={{width: "12px"}}></img>
                 </div>
                 <div id="posts-and-posting">
                     <MakePosts />

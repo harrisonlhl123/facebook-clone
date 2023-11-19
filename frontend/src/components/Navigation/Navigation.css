@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px; /* Add padding for space */
+    padding: 15px;
     background-color: white;
   }
   
@@ -52,10 +52,25 @@
     display: flex;
     align-items: center;
   }
+
+  .icon {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 170px;
+  }
+
+  .icon img {
+    width: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
   
   #logo {
-    height: 40px; /* Set a specific height for the logo */
-    margin-right: 10px; /* Add margin to create space between the image and the search bar */
+    height: 40px;
+    margin-right: 10px;
   }
 
   #search-bar {
