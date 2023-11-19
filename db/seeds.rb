@@ -11,9 +11,9 @@ require "open-uri"
 # ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
-    Post.destroy_all
-    Friend.destroy_al
     User.destroy_all
+    Post.destroy_all
+    Friend.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -21,15 +21,18 @@ require "open-uri"
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
-    User.create!(
+    firstUser = User.create!(
         email: 'demo@user.io',
         first_name: 'Demo',
         last_name: 'lition',
         birthday: Date.new(2000, 1, 1),
         gender: 'Male',
         password: 'password'
-      )
-      
+    )
+
+    firstUser.pfp.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
+
+    firstUser.cover.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/kittens.jpg"), filename: "kittens.jpg")
   
     # More users
     10.times do
@@ -53,7 +56,14 @@ require "open-uri"
       author_id: 2
     )
 
+    catPost = Post.create!(
+      body: "Look at this cat!",
+      author_id: 2
+    )
 
+    catPost.photo.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
+
+ 
     users = User.all
 
     users.each_with_index do |user, index|

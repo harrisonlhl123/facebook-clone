@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_one_attached :pfp
+    has_one_attached :cover
+
     has_many :posts,
         dependent: :destroy
     

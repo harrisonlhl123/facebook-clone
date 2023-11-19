@@ -19,11 +19,11 @@ const ProfilePage = () => {
     return (
         <div id="profile-page">
             <div id="cover-photo">
-                <p>Cover photo will be here</p>
+                <img src={`${user?.cover}`} />
             </div>
             <div id="profile-info-container">
                 <div id="profile-pic">
-                    <i className="fa-regular fa-user"></i>
+                    <img src={`${user?.pfp}`} />
                 </div>
                 <div id="profile-info">
                     <h1>{`${user?.firstName} ${user?.lastName}`}</h1>

@@ -20,4 +20,20 @@
     font-family: Helvetica, Arial, sans-serif;
     padding-left: 10px;
     padding-top: 10px;
+    background-color: rgb(231, 230, 230);
+}
+
+#make-post {
+    border: 1px solid red;
+    padding: 10px;
+    background-color: white;
+}
+
+#create-post-button {
+    margin-left: auto;
+}
+
+#edit-and-delete-buttons {
+    display: flex;
+    justify-content: flex-start;
 }

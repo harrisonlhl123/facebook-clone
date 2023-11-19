@@ -33,12 +33,17 @@ const OnePost = ({post}) => {
 
             <p id="posts-body">{post.body}</p>
 
+            <img src={`${post?.photo}`} />
+
             <br></br>
 
-            {/* <button onClick={handleEdit}>Edit</button> */}
-            {user.id === post.authorId && <EditPostsModal postId={post.id}/>}
 
-            {user.id === post.authorId && <button onClick={handleDelete}>Delete</button>}
+            {/* <button onClick={handleEdit}>Edit</button> */}
+            <div id="edit-and-delete-buttons">
+                {user.id === post.authorId && <EditPostsModal postId={post.id}/>}
+
+                {user.id === post.authorId && <button onClick={handleDelete}>Delete</button>}
+            </div>
         </div>
     )
 }
