@@ -10,7 +10,8 @@ import { getUser } from '../../store/users';
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
-    const postUser = useSelector(getUser(post.authorId))
+    const postUserId = post.authorId
+    const postUser = useSelector(getUser(postUserId))
 
     function handleDelete(e){
         e.preventDefault();
@@ -31,14 +32,16 @@ const OnePost = ({post}) => {
 
     return(
         <div className='one-post'>
-            <div className="post-profile-pic">
-                <img src={`${postUser?.pfp}`} />
+            <div className="post-info">
+                <div className="post-profile-pic">
+                    <img src={`${postUser?.pfp}`} />
+                </div>
+                <h3>{`${post.author} ${post.author2}`}</h3>
             </div>
-            <h3>{`${post.author} ${post.author2}`}</h3>
 
             <p id="posts-body">{post.body}</p>
 
-            <img src={`${post?.photo}`} />
+            <img src={`${postUser?.photo}`} />
 
             <br></br>
 

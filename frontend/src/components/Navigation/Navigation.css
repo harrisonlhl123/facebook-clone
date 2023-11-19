@@ -1,6 +1,6 @@
 /* Add to your existing CSS file */
 .profile-button-container {
-    position: fixed;
+    position: relative;
     top: 10px; /* Adjust the top distance as needed */
     right: 10px; /* Adjust the right distance as needed */
     z-index: 999; /* Ensure the button stays on top */

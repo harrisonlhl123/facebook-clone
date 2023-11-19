@@ -14,7 +14,7 @@
 }
 
 #text-area-post {
-    width: 500px;
+    width: 540px;
     height: 75px;
     border-radius: 8px;
     font-family: Helvetica, Arial, sans-serif;
@@ -41,12 +41,17 @@
     justify-content: flex-start;
 }
 
+.post-info {
+    display: flex;
+    align-items: center;
+}
+
 .post-profile-pic {
     margin-right: 10px;
     border-radius: 50%;
     position: relative; 
     overflow: hidden;
-    width: 100px;
+    width: 50px;
 }
 
 .post-profile-pic img {
