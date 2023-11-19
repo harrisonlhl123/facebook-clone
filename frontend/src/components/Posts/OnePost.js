@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePost } from '../../store/posts';
 import "./Posts.css"
 import EditPostsModal from './EditPostsModal';
+import { getUser } from '../../store/users';
 // import EditPosts from './EditPosts';
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
+    const postUser = useSelector(getUser(post.authorId))
 
     function handleDelete(e){
         e.preventDefault();
@@ -29,6 +31,9 @@ const OnePost = ({post}) => {
 
     return(
         <div className='one-post'>
+            <div className="post-profile-pic">
+                <img src={`${postUser?.pfp}`} />
+            </div>
             <h3>{`${post.author} ${post.author2}`}</h3>
 
             <p id="posts-body">{post.body}</p>

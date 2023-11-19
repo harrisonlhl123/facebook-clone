@@ -3,7 +3,8 @@ import AllPosts from "../Posts/AllPosts"
 import MakePosts from "../Posts/MakePosts"
 import "./NewsFeed.css"
 import { useSelector } from "react-redux/es/hooks/useSelector"
-import FriendsList from "../Friends/FriendsList"
+import ContactsList from "../Friends/ContactsList"
+// import FriendsList from "../Friends/FriendsList"
 
 
 function NewsFeed() {
@@ -30,8 +31,9 @@ function NewsFeed() {
                     <AllPosts />
                 </div>
                 <div id="friends">
-                    <p>Friends list will be here</p>
-                    <FriendsList />
+                    <p>Contacts</p>
+                    {/* <FriendsList /> */}
+                    <ContactsList />
                 </div>
             </div>
         </>

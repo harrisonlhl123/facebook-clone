@@ -33,6 +33,7 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         <div style={{ fontSize: "50px" }}>
           <i className="fa-solid fa-user-circle" />
+          {/* <img src={`${user?.pfp}`} /> */}
         </div>
       </button>
       {showMenu && (

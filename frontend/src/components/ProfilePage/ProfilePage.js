@@ -45,7 +45,7 @@ const ProfilePage = () => {
             </div>
             <div className="clearfix"></div>
 
-            <Link to="/">Back</Link>
+            {/* <Link to="/">Back</Link> */}
         </div>
     )
 }

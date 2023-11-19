@@ -2,7 +2,7 @@
     border: 1px solid rgb(224, 224, 224);
     border-radius: 8px;
     font-family: Helvetica, Arial, sans-serif;
-    width: 600px;
+    width: 620px;
     background-color: white;
     margin-bottom: 10px;
     padding-left: 10px;
@@ -14,8 +14,8 @@
 }
 
 #text-area-post {
-    width: 600px;
-    /* height: 100px; */
+    width: 500px;
+    height: 75px;
     border-radius: 8px;
     font-family: Helvetica, Arial, sans-serif;
     padding-left: 10px;
@@ -24,9 +24,12 @@
 }
 
 #make-post {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: flex-start;
     padding: 10px;
     background-color: white;
+    border-radius: 8px;
 }
 
 #create-post-button {
@@ -36,4 +39,18 @@
 #edit-and-delete-buttons {
     display: flex;
     justify-content: flex-start;
+}
+
+.post-profile-pic {
+    margin-right: 10px;
+    border-radius: 50%;
+    position: relative; 
+    overflow: hidden;
+    width: 100px;
+}
+
+.post-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

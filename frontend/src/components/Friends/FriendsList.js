@@ -21,7 +21,7 @@ const FriendsList = () => {
     // debugger
     return (
         <>
-            <h3>Friends List will go here</h3>
+            <h3>Friends</h3>
             <ul>
                 {friends?.map(friend => (
                     <li key={friend?.id}>{friend?.firstName} {friend?.lastName}</li>

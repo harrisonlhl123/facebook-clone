@@ -7,6 +7,7 @@ import LoginPageForm from '../LoginFormPage';
 import './Navigation.css';
 import NewsFeed from '../NewsFeed';
 import logo from "../images/logo.png"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import SearchBar from './SearchBar';
 import homeButton from "../../components/images/svg/homeButton.svg"
 import tvButton from "../../components/images/svg/tvButton.svg"
@@ -28,7 +29,7 @@ function Navigation() {
             <SearchBar />
           </div>
           <div className='icon'>
-            <img src={homeButton} style={{width: "30px"}}></img>
+            <Link to="/"><img src={homeButton} style={{width: "30px"}}></img></Link>
             <img src={tvButton} style={{width: "30px"}}></img>
             <img src={marketButton} style={{width: "30px"}}></img>
             <img src={groupButton} style={{width: "30px"}}></img>
