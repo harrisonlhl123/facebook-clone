@@ -6,3 +6,17 @@
     padding: 1px 10px;
     border-radius: 8px;
 }
+
+#friends-list-profile {
+    width: 50px;
+    border-radius: 50%;
+}
+
+#contact-list-newsfeed {
+    width: 50px;
+    border-radius: 50%;
+}
+
+#contact-friends-list {
+    list-style-type: none;
+}

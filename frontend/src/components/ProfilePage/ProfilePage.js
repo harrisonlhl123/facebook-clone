@@ -11,10 +11,11 @@ const ProfilePage = () => {
     const dispatch = useDispatch();
     const { userId } = useParams();
     const user = useSelector(getUser(userId));
-
+    
     useEffect(() => {
         dispatch(fetchUser(userId));
     }, [userId]);
+    console.log(userId)
 
     return (
         <div id="profile-page">

@@ -8,7 +8,7 @@ const receiveUser = payload => ({
     payload
 })
 
-const receiveUsers = users => ({
+export const receiveUsers = users => ({
     type: RECEIVE_USERS,
     users
 })
@@ -18,6 +18,7 @@ export const getUser = userId => state => state.users ? state.users[userId] : nu
 export const getUsers = state => state.users ? Object.values(state.users) : [];
 
 export const fetchUser = (userId) => async (dispatch) => {
+    // debugger
     const response = await csrfFetch(`/api/users/${userId}`);
 
     if(response.ok){
@@ -28,7 +29,7 @@ export const fetchUser = (userId) => async (dispatch) => {
 }
 
 export const fetchUsers = () => async (dispatch) => {
-    const response = await fetch('/api/users');
+    const response = await csrfFetch('/api/users');
 
     if(response.ok){
         const users = await response.json();

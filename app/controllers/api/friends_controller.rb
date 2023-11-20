@@ -20,6 +20,11 @@ class Api::FriendsController < ApplicationController
         end
     end
 
+    def index
+        @friends = current_user.friends
+        render :index
+    end
+
     private
     def friend_params 
         params.require(:friend).permit(:user_id, :friend_id)

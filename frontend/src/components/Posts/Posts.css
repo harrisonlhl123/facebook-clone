@@ -11,6 +11,7 @@
 
 #posts-body {
     color: black;
+    padding-bottom: 20px;
 }
 
 #text-area-post {
@@ -59,3 +60,15 @@
     height: 100%;
     object-fit: cover;
 }
+
+.post-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust the height as needed */
+  }
+  
+  #post-photo {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    max-height: 100%; /* Ensure the image doesn't exceed its container */
+  }

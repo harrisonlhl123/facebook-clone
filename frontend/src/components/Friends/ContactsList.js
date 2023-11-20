@@ -1,32 +1,29 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, fetchUsers } from '../../store/users';
-// import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { fetchFriends } from '../../store/friends';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ContactsList = () => {
 
     const dispatch = useDispatch();
-    const currentUser = useSelector((state) => state.session.user);
-    // const friends = useSelector(state => {
-    //     return state.users[userId]?.friendIds.map(id => {
-    //         return state.users[id]
-    //     })
-    // })
-    const users = useSelector(getUsers);
+    const currentUserId = useSelector((state) => state.session.user.id);
+    const friends = useSelector(state =>  state.users[currentUserId]?.friendIds?.map((friendId) => {
+        return state.users[friendId]
+    }))
 
     useEffect(() => {
-        dispatch(fetchUsers());
+        dispatch(fetchFriends());
     }, [dispatch]);
-
-    const friends = currentUser.friends || [];
-    const friendsData = users.filter(user => friends.includes(user.id));
 
     return (
         <>
             <h3>Friends</h3>
             <ul>
-                {friendsData?.map(friend => (
-                    <li key={friend?.id}>{friend?.firstName} {friend?.lastName}</li>
+                {friends?.map(friend => (
+                    <>
+                        <img src={`${friend?.pfp}`} id="contact-list-newsfeed"/>
+                        <Link to={`/users/${friend?.id}`}><li key={friend?.id} id="contact-friends-list">{friend?.firstName} {friend?.lastName}</li></Link>
+                    </>
                 ))}
             </ul>
         </>

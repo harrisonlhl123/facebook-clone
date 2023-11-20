@@ -9,7 +9,7 @@ const FriendsList = () => {
     const { userId } = useParams();
 
     const friends = useSelector(state => {
-        return state.users[userId]?.friendIds.map(id => {
+        return state.users[userId]?.friendIds?.map(id => {
             return state.users[id]
         })
     })
@@ -18,8 +18,11 @@ const FriendsList = () => {
         <div id="profile-friends-box">
             <h3>Friends</h3>
             <ul>
-                {friends?.map(friend => (
-                        <Link to={`/users/${friend?.id}`}><li id="profile-friends-list" key={friend?.id}>{friend?.firstName} {friend?.lastName}</li></Link>
+                {friends?.length > 0 && friends?.map(friend => (
+                        <>
+                            <img src={`${friend?.pfp}`} id="friends-list-profile"/>
+                            <Link to={`/users/${friend?.id}`}><li id="profile-friends-list" key={friend?.id}>{friend?.firstName} {friend?.lastName}</li></Link>
+                        </>
                 ))}
             </ul>
         </div>

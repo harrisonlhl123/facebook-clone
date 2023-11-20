@@ -6,7 +6,6 @@ import EditPostsModal from './EditPostsModal';
 import { getUser } from '../../store/users';
 
 const OnePost = ({post}) => {
-    // debugger
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
     const postUserId = post.authorId
@@ -25,19 +24,21 @@ const OnePost = ({post}) => {
         <div className='one-post'>
             <div className="post-info">
                 <div className="post-profile-pic">
-                    <img src={`${postUser?.pfp}`} />
+                    <img src={`${post?.pfp}`} />
                 </div>
                 <h3>{`${post.author} ${post.author2}`}</h3>
             </div>
 
             <p id="posts-body">{post.body}</p>
 
-            <img src={`${postUser?.photo}`} />
+            {post.photo && (
+                <div className="post-photo-container">
+                    <img src={`${post.photo}`} id="post-photo" />
+                </div>
+            )}
 
             <br></br>
 
-
-            {/* <button onClick={handleEdit}>Edit</button> */}
             <div id="edit-and-delete-buttons">
                 {user.id === post.authorId && <EditPostsModal postId={post.id}/>}
 
