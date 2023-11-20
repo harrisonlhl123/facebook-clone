@@ -20,31 +20,40 @@ require "open-uri"
     ApplicationRecord.connection.reset_pk_sequence!('users')
   
     puts "Creating users..."
-    # Create one user with an easy to remember username, email, and password:
-    firstUser = User.create!(
-        email: 'demo@user.io',
-        first_name: 'Demo',
-        last_name: 'lition',
-        birthday: Date.new(2000, 1, 1),
-        gender: 'Male',
-        password: 'password'
-    )
-
-    firstUser.pfp.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
-
-    firstUser.cover.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/kittens.jpg"), filename: "kittens.jpg")
-  
+    
     # More users
     10.times do
-        User.create!(
-          email: Faker::Internet.unique.email,
-          first_name: Faker::Name.first_name,
-          last_name: Faker::Name.last_name,
-          birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
-          gender: ['Male', 'Female'].sample,
-          password: 'password'
+      User.create!(
+        email: Faker::Internet.unique.email,
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+        gender: ['Male', 'Female'].sample,
+        password: 'password'
         )
-    end
+      end
+
+      User.first(10).each do |user|
+        user.pfp.attach(
+          # The string passed to URI.open should be the URL of the image in its bucket.
+          # This sample assumes the bucket name is `benchbnb-seeds`.
+          io: URI.open("https://instabook-seeds.s3.amazonaws.com/default.png"), 
+          filename: "default.png"
+        )
+      end
+      
+      demoUser = User.create!(
+          email: 'harrison@aa.io',
+          first_name: 'Harrison',
+          last_name: 'Liang',
+          birthday: Date.new(2000, 1, 1),
+          gender: 'Male',
+          password: 'password'
+      )
+  
+      demoUser.pfp.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
+  
+      demoUser.cover.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/kittens.jpg"), filename: "kittens.jpg")
 
     Post.create!(
       body: "First post on Facebook clone!",

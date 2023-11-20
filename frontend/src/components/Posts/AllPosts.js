@@ -6,7 +6,6 @@ import "./Posts.css"
 
 
 function AllPosts() {
-
     const dispatch = useDispatch();
     const posts = useSelector(getPosts);
 

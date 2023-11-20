@@ -1,13 +1,12 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost } from '../../store/posts';
 import "./Posts.css"
 import EditPostsModal from './EditPostsModal';
 import { getUser } from '../../store/users';
-// import EditPosts from './EditPosts';
 
 const OnePost = ({post}) => {
+    // debugger
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
     const postUserId = post.authorId
@@ -21,14 +20,6 @@ const OnePost = ({post}) => {
             dispatch(deletePost(post.id))
         }
     }
-
-    // function handleEdit(e) {
-    //     e.preventDefault();
-
-    //    return (
-    //         <EditPosts />
-    //    )
-    // }
 
     return(
         <div className='one-post'>
