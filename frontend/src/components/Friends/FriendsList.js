@@ -17,12 +17,15 @@ const FriendsList = () => {
     return (
         <div id="profile-friends-box">
             <h3>Friends</h3>
-            <ul>
-                {friends?.length > 0 && friends?.map(friend => (
-                        <>
-                            <img src={`${friend?.pfp}`} id="friends-list-profile"/>
-                            <Link to={`/users/${friend?.id}`}><li id="profile-friends-list" key={friend?.id}>{friend?.firstName} {friend?.lastName}</li></Link>
-                        </>
+            <ul className="friends-list">
+            {friends?.length > 0 &&
+                friends?.map((friend, index) => (
+                <div id="friend-container" key={friend?.id}>
+                    <img src={`${friend?.pfp}`} id="friends-list-profile" alt={`Friend ${index + 1}`} />
+                    <Link to={`/users/${friend?.id}`} id="contact-friends-list">
+                    {friend?.firstName} {friend?.lastName}
+                    </Link>
+                </div>
                 ))}
             </ul>
         </div>

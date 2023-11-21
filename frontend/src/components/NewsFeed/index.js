@@ -32,7 +32,6 @@ function NewsFeed() {
                 </div>
                 <div id="friends">
                     <p>Contacts</p>
-                    {/* <FriendsList /> */}
                     <ContactsList />
                 </div>
             </div>

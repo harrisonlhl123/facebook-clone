@@ -26,6 +26,7 @@
 
 #make-post {
     /* border: 1px solid red; */
+    width: 610px;
     display: flex;
     align-items: flex-start;
     padding: 10px;

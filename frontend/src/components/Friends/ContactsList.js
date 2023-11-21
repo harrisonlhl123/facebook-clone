@@ -17,13 +17,16 @@ const ContactsList = () => {
 
     return (
         <>
-            <h3>Friends</h3>
             <ul>
-                {friends?.map(friend => (
-                    <>
-                        <img src={`${friend?.pfp}`} id="contact-list-newsfeed"/>
-                        <Link to={`/users/${friend?.id}`}><li key={friend?.id} id="contact-friends-list">{friend?.firstName} {friend?.lastName}</li></Link>
-                    </>
+                {friends?.map((friend) => (
+                    <li key={friend?.id} id="contact-friends-list">
+                        <div id="contact-container">
+                            <img src={`${friend?.pfp}`} id="contact-list-newsfeed" alt="Friend" />
+                            <Link to={`/users/${friend?.id}`}>
+                            {friend?.firstName} {friend?.lastName}
+                            </Link>
+                        </div>
+                    </li>
                 ))}
             </ul>
         </>
