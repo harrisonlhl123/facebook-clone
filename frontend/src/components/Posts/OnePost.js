@@ -47,6 +47,8 @@ const OnePost = ({post}) => {
                 {user.id === post.authorId && <button onClick={handleDelete}>Delete</button>}
             </div>
 
+            <br></br>
+
             <AllComments />
             <MakeComments />
         </div>

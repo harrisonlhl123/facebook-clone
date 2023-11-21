@@ -46,9 +46,6 @@ export const createComment = (comment) => async (dispatch) => {
     const response = await csrfFetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify(comment)
-        // headers: {
-        //     "Content-Type": "application/json"
-        // }
     });
 
     if (response.ok){
@@ -61,9 +58,6 @@ export const updateComment = (comment) => async (dispatch) => {
     const response = await csrfFetch(`/api/comments/${comment.id}`, {
         method: 'PATCH',
         body: JSON.stringify(comment)
-        // headers: {
-        //     "Content-Type": "application/json"
-        // }
     });
 
     if (response.ok){

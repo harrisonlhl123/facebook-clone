@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteComment } from '../../store/comments';
 import "./Comments.css"
-import EditComments from "./EditComments"
+import EditCommentsModal from './EditCommentsModal';
 import { getUser } from '../../store/users';
 
 const OneComment = ({comment}) => {
@@ -30,10 +30,8 @@ const OneComment = ({comment}) => {
 
             <p id="comment-body">{comment.body}</p>
 
-            <br></br>
-
             <div id="comments-edit-delete-buttons">
-                {user.id === comment.userId && <EditComments commentId={comment.id}/>}
+                {user.id === comment.userId && <EditCommentsModal commentId={comment.id}/>}
                 {user.id === comment.userId && <button onClick={handleDelete}>Delete</button>}
             </div>
         </div>
