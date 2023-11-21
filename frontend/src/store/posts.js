@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf.js";
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from "./comments.js";
 
 export const RECEIVE_POSTS = "posts/RECEIVE_POSTS";
 export const RECEIVE_POST = "posts/RECEIVE_POST";
@@ -9,7 +10,7 @@ const receivePosts = posts => ({
     posts
 })
 
-const receivePost = post => ({
+export const receivePost = post => ({
     type: RECEIVE_POST,
     post
 })
@@ -95,6 +96,24 @@ const postsReducer = (state = {}, action) => {
         case REMOVE_POST:
             delete newState[action.postId];
             return newState;
+        case RECEIVE_COMMENT:
+            let post = state[action.comment.postId];
+            let commentIds = post.commentIds;
+            let newCommendIds = commentIds.includes(action.comment.id) ? commentIds : [action.comment.id, ...commentIds]
+            let newPost = {
+                ...post,
+                commentIds: newCommendIds
+            };
+            return {...newState, [action.comment.postId]: newPost};
+        case REMOVE_COMMENT:
+            // debugger
+            let removedCommentPost = state[action.comment.post_id];
+            let removedPostCommentIds = [...(removedCommentPost.commentIds)];
+            let updatedPost = {
+                ...removedCommentPost,
+                commentIds: removedPostCommentIds.filter(ele => ele != action.comment.post_id)
+            };
+            return {...newState, [action.comment.post_id]: updatedPost};            
         default:
             return state;
     }

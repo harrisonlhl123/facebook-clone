@@ -1,9 +1,14 @@
 class Api::CommentsController < ApplicationController
+    # wrap_parameters include: Comment.attribute_names + ["post_id", "user_id"]
     
     def create
         @comment = Comment.new(comment_params)
+        @comment.user_id = params[:user_id]
+        @comment.post_id = params[:post_id]
+        # debugger
 
         if @comment.save
+            # @post = Post.find(params[:post_id])
             render :show
         else
             render json: { errors: @comment.errors.full_messages }, status: 422
@@ -13,7 +18,7 @@ class Api::CommentsController < ApplicationController
     def destroy
         @comment = Comment.find(params[:id])
         @comment.destroy
-        head :no_content # return header only
+        render json: @comment
     end
 
     def update
@@ -27,7 +32,12 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        @comments = Comment.all
+        if params[:post_id]
+            @comments = Comment.where(:post_id == params[:post_id])
+        else
+            @comments = Comment.all
+        end
+
         render :index
     end
 

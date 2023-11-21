@@ -49,8 +49,8 @@ const OnePost = ({post}) => {
 
             <br></br>
 
-            <AllComments />
-            <MakeComments />
+            <AllComments postId={post.id}/>
+            <MakeComments postId={post.id}/>
         </div>
     )
 }

@@ -14,9 +14,9 @@ const receiveComment = comment => ({
     comment
 })
 
-const removeComment = commentId => ({
+const removeComment = comment => ({
     type: REMOVE_COMMENT,
-    commentId
+    comment
 })
 
 export const getComment = commentId => state => state.comments ? state.comments[commentId] : null;
@@ -24,8 +24,8 @@ export const getComment = commentId => state => state.comments ? state.comments[
 
 export const getComments = state => state.comments ? state.comments : [];
 
-export const fetchComments = () => async (dispatch) => {
-    const response = await csrfFetch('/api/comments');
+export const fetchComments = (postId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/comments?post_id=${postId}`);
 
     if(response.ok){
         const comments = await response.json();
@@ -72,9 +72,9 @@ export const deleteComment = (commentId) => async (dispatch) => {
     const response = await csrfFetch(`/api/comments/${commentId}`, {
         method: 'DELETE'
     })
-
+    const comment = await response.json();
     if (response.ok){
-        dispatch(removeComment(commentId));
+        dispatch(removeComment(comment));
     }
 }
 
@@ -87,7 +87,7 @@ const commentsReducer = (state = {}, action) => {
         case RECEIVE_COMMENT:
             return {...newState, [action.comment.id]: action.comment};
         case REMOVE_COMMENT:
-            delete newState[action.commentId];
+            delete newState[action.comment.id];
             return newState;
         default:
             return state;

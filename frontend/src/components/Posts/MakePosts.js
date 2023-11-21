@@ -19,6 +19,7 @@ function MakePosts() {
     }
 
     function handleSubmit(e) {
+        e.preventDefault();
         // const authorId = user.id;
         dispatch(createPost({body}));
     }

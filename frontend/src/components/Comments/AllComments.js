@@ -5,19 +5,29 @@ import { getComments, fetchComments } from '../../store/comments';
 import "./Comments.css"
 
 
-function AllComments() {
+function AllComments({postId}) {
     const dispatch = useDispatch();
-    const comments = useSelector(getComments);
+    const post = useSelector(state => state.posts[postId])
+    const comments = useSelector(state => post?.commentIds?.map(commentId => {
+        if (state?.comments[commentId]) {
+            return state?.comments[commentId];
+        } else {
+            return;
+        }
+    }));
 
     useEffect(() => {
-        dispatch(fetchComments());
+        dispatch(fetchComments(postId));
     }, [])
+    // debugger
 
     return(
         <>
             <ul>
-                {Object.values(comments).reverse().map(comment => {
-                    return <OneComment comment={comment} key={comment.id}/>
+                {comments?.map(comment => {
+                    if (comment) {
+                        return <OneComment comment={comment} key={comment?.id}/>
+                    }
                 })}
             </ul>
         </>

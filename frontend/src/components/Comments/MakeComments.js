@@ -5,7 +5,7 @@ import { getUser } from '../../store/users';
 import "./Comments.css"
 
 
-function MakeComments() {
+function MakeComments({postId}) {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
     const userId = currentUser?.id
@@ -19,7 +19,11 @@ function MakeComments() {
     }
 
     function handleSubmit(e) {
-        dispatch(createComment({body}));
+        e.preventDefault();
+
+        setBody("");
+        dispatch(createComment({body, userId, postId}));
+
     }
 
     return(
