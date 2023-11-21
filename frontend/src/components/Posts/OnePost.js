@@ -4,6 +4,8 @@ import { deletePost } from '../../store/posts';
 import "./Posts.css"
 import EditPostsModal from './EditPostsModal';
 import { getUser } from '../../store/users';
+import AllComments from '../Comments/AllComments';
+import MakeComments from '../Comments/MakeComments';
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
@@ -44,6 +46,9 @@ const OnePost = ({post}) => {
 
                 {user.id === post.authorId && <button onClick={handleDelete}>Delete</button>}
             </div>
+
+            <AllComments />
+            <MakeComments />
         </div>
     )
 }

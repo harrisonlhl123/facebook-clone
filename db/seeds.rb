@@ -56,7 +56,7 @@ require "open-uri"
       demoUser.cover.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/kittens.jpg"), filename: "kittens.jpg")
 
     Post.create!(
-      body: "First post on Facebook clone!",
+      body: "First post on Instabook!",
       author_id: 1
     )
 
@@ -82,7 +82,25 @@ require "open-uri"
       # Create friendships (initiator and receiver perspectives)
       Friend.create!(user: user, friend: friend)
       Friend.create!(user: friend, friend: user)
-    end    
+    end 
+    
+    Comment.create!(
+      user_id: 3,
+      post_id: 1,
+      body: "First comment on Instabook!"
+    )
+
+    Comment.create!(
+      user_id: 8,
+      post_id: 2,
+      body: "Merry Christmas!"
+    )
+
+    Comment.create!(
+      user_id: 5,
+      post_id: 3,
+      body: "How old is he?"
+    )
     
     puts "Done!"
   # end
