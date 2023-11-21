@@ -1,0 +1,23 @@
+#logo {
+    width: 30px;
+}
+
+#main-feed {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+  
+#socials, #friends {
+    width: 15%;
+    /* border: 1px solid red; */
+    padding: 10px;
+}
+  
+#posts-and-posting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 70%;
+}

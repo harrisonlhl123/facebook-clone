@@ -1,0 +1,44 @@
+#profile-friends-list {
+    list-style-type: none;
+}
+
+#profile-friends-box {
+    padding: 1px 10px;
+    border-radius: 8px;
+}
+
+.friends-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+#friends-list-profile {
+    width: 50px;
+    border-radius: 50%;
+}
+
+#friend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#contact-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#contact-list-newsfeed {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#contact-friends-list {
+    list-style-type: none;
+    font-family: Helvetica, Arial, sans-serif;
+}

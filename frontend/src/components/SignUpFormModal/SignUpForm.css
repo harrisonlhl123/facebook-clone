@@ -85,3 +85,9 @@ form {
     display: flex;
     align-items: center;
 }
+
+#signup-errors {
+    color: red;
+    list-style-type: none;
+    font-family: Helvetica, Arial, sans-serif;
+}

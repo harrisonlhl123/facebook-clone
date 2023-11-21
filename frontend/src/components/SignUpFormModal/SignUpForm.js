@@ -80,7 +80,7 @@ function SignUpForm() {
       <p>It's quick and easy</p>
       <form onSubmit={handleSubmit}>
         <ul>
-          {errors.map((error) => <li key={error}>{error}</li>)}
+          {errors.map((error) => <li id="signup-errors" key={error}>{error}</li>)}
         </ul>
         <div className="name-inputs">
           <label>

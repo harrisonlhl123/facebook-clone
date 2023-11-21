@@ -60,13 +60,13 @@ const LoginPageForm = () => {
     return (
       <div id="login-container">
         <div id="left-content">
-          <h1>facebook</h1>
-          <p>Connect with friends and the world around you on Facebook.</p>
+          <h1>instabook</h1>
+          <p>Connect with friends and the world around you on Instabook.</p>
         </div>
         <div id="right-content">
           <form onSubmit={handleSubmit}>
             <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
+              {errors.map(error => <li id="login-errors" key={error}>{error}</li>)}
             </ul>
             <div className="login-email-password">
               <label>

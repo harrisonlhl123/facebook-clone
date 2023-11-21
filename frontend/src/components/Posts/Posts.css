@@ -1,0 +1,75 @@
+.one-post {
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 8px;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 620px;
+    background-color: white;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+#posts-body {
+    color: black;
+    padding-bottom: 20px;
+}
+
+#text-area-post {
+    width: 540px;
+    height: 75px;
+    border-radius: 8px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: rgb(231, 230, 230);
+}
+
+#make-post {
+    /* border: 1px solid red; */
+    width: 610px;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#create-post-button {
+    margin-left: auto;
+}
+
+#edit-and-delete-buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+}
+
+.post-profile-pic {
+    margin-right: 10px;
+    border-radius: 50%;
+    position: relative; 
+    overflow: hidden;
+    width: 50px;
+}
+
+.post-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust the height as needed */
+  }
+  
+  #post-photo {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    max-height: 100%; /* Ensure the image doesn't exceed its container */
+  }

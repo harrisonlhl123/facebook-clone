@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import * as ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from "./context/Modal";
@@ -37,6 +38,15 @@ const renderApplication = () => {
     document.getElementById('root')
   );
 }
+// const renderApplication = () => {
+//   ReactDOM.createRoot(
+//     document.getElementById('root')
+//   ).render(
+//     <React.StrictMode>
+//       <Root />
+//     </React.StrictMode>
+//   )
+// }
 
 if (
   sessionStorage.getItem("currentUser") === null ||
