@@ -15,7 +15,7 @@ const ProfilePage = () => {
     useEffect(() => {
         dispatch(fetchUser(userId));
     }, [userId]);
-    console.log(userId)
+    // console.log(userId)
 
     return (
         <div id="profile-page">
