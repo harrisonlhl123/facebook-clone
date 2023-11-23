@@ -36,6 +36,8 @@ class User < ApplicationRecord
         through: :initiated_friendships,
         source: :friend
 
+    has_many :likes, dependent: :destroy
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user&.authenticate(password)

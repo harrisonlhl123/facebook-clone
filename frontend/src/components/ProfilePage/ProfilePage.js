@@ -9,13 +9,14 @@ import "./ProfilePage.css";
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
+    //profile page user
     const { userId } = useParams();
     const user = useSelector(getUser(userId));
+
     
     useEffect(() => {
         dispatch(fetchUser(userId));
     }, [userId]);
-    // console.log(userId)
 
     return (
         <div id="profile-page">

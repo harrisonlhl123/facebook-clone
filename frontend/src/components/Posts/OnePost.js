@@ -6,12 +6,24 @@ import EditPostsModal from './EditPostsModal';
 import { getUser } from '../../store/users';
 import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
+import { getPostLikes } from "../../store/likes";
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
     const postUserId = post.authorId
     const postUser = useSelector(getUser(postUserId))
+    let postLikes = useSelector(getPostLikes(post.id))
+    let likesCounter;
+
+    if (postLikes.length){
+        likesCounter = <div id = "likescounterContainer">
+        <i className="fa-solid fa-thumbs-up"></i> {postLikes.length} 
+        </div>
+    }
+
+    const likesBool = postLikes.some((like) => like.userId === user.id )
+    const userLike = postLikes.find((like) => like.userId === user.id)
 
     function handleDelete(e){
         e.preventDefault();
@@ -38,6 +50,12 @@ const OnePost = ({post}) => {
                     <img src={`${post.photo}`} id="post-photo" />
                 </div>
             )}
+
+            <br></br>
+
+            <div id = "likesContainer">
+                {likesCounter}
+            </div>
 
             <br></br>
 

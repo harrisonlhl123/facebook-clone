@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import OnePost from "./OnePost";
 import { getPosts, fetchPosts } from '../../store/posts';
+import { fetchLikes } from "../../store/likes"
 import "./Posts.css"
 
 
@@ -11,6 +12,7 @@ function AllPosts() {
 
     useEffect(() => {
         dispatch(fetchPosts());
+        dispatch(fetchLikes())
     }, [])
 
     return(
