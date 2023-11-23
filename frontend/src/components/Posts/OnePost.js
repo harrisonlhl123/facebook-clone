@@ -6,7 +6,7 @@ import EditPostsModal from './EditPostsModal';
 import { getUser } from '../../store/users';
 import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
-import { getPostLikes } from "../../store/likes";
+import { getPostLikes, deleteLike, createLike } from "../../store/likes";
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
@@ -24,6 +24,28 @@ const OnePost = ({post}) => {
 
     const likesBool = postLikes.some((like) => like.userId === user.id )
     const userLike = postLikes.find((like) => like.userId === user.id)
+
+    const handleUnlikeClick = ()=>{
+        dispatch(deleteLike(userLike.id))
+    }
+
+    const handleLikeClick = ()=>{
+        let like = {
+            userId: user.id,
+            likeableId: post.id,
+            likeableType: 'Post'
+        }
+        dispatch(createLike(like))
+    }
+
+    let likesButton
+    if (likesBool){
+        likesButton = <p onClick={handleUnlikeClick} id ="postsunlike" >Like</p>
+    }else{
+        likesButton = <p onClick={handleLikeClick} id ="postslike"> Like</p>
+    }
+
+
 
     function handleDelete(e){
         e.preventDefault();
@@ -56,6 +78,8 @@ const OnePost = ({post}) => {
             <div id = "likesContainer">
                 {likesCounter}
             </div>
+
+            {likesButton}
 
             <br></br>
 
