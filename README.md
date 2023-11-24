@@ -163,3 +163,5 @@ const postsReducer = (state = {}, action) => {
 + Friending feature for users. Although users have friends by default, I'd like them to be able to add and remove each other.
 
 + Uploading pictures to Instabook for posts, profile pictures, and cover photos.
+
++ Work on styling.
