@@ -40,9 +40,9 @@ const OnePost = ({post}) => {
 
     let likesButton
     if (likesBool){
-        likesButton = <p onClick={handleUnlikeClick} id ="postsunlike" >Like</p>
+        likesButton = <p onClick={handleUnlikeClick} id ="postsUnlike" >Like</p>
     }else{
-        likesButton = <p onClick={handleLikeClick} id ="postslike"> Like</p>
+        likesButton = <p onClick={handleLikeClick} id ="postsLike"> Like</p>
     }
 
 
@@ -75,11 +75,11 @@ const OnePost = ({post}) => {
 
             <br></br>
 
-            <div id = "likesContainer">
+            <div id="likes-counter-container">
                 {likesCounter}
             </div>
 
-            {likesButton}
+            <button id="like-button">{likesButton}</button>
 
             <br></br>
 

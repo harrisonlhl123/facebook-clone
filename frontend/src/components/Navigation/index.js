@@ -34,10 +34,10 @@ function Navigation() {
           </div>
           <div className='icon'>
             <Link to="/"><img src={homeButton} style={{width: "30px"}}></img></Link>
-            <img src={tvButton} style={{width: "30px"}}></img>
+            {/* <img src={tvButton} style={{width: "30px"}}></img>
             <img src={marketButton} style={{width: "30px"}}></img>
             <img src={groupButton} style={{width: "30px"}}></img>
-            <img src={gamingButton} style={{width: "30px"}}></img>
+            <img src={gamingButton} style={{width: "30px"}}></img> */}
           </div>
           <ProfileButton user={user} />
         </div>
