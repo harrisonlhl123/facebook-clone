@@ -15,7 +15,6 @@ const ProfilePage = () => {
     useEffect(() => {
         dispatch(fetchUser(userId));
     }, [userId]);
-    // console.log(userId)
 
     return (
         <div id="profile-page">
@@ -45,8 +44,6 @@ const ProfilePage = () => {
                 </div>
             </div>
             <div className="clearfix"></div>
-
-            {/* <Link to="/">Back</Link> */}
         </div>
     )
 }

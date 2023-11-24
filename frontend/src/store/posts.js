@@ -106,7 +106,6 @@ const postsReducer = (state = {}, action) => {
             };
             return {...newState, [action.comment.postId]: newPost};
         case REMOVE_COMMENT:
-            // debugger
             let removedCommentPost = state[action.comment.post_id];
             let removedPostCommentIds = [...(removedCommentPost.commentIds)];
             let updatedPost = {
