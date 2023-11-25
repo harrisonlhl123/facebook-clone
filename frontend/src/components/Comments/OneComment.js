@@ -11,24 +11,27 @@ const OneComment = ({comment}) => {
     const user = useSelector((state) => state.session.user);
     const commentUserId = comment.userId
     const commentUser = useSelector(getUser(commentUserId))
+    const likesForComments = useSelector(getCommentLikes(comment?.id))
+    let numOfLikes;
 
-    const commentLikes = useSelector(getCommentLikes(comment?.id))
-    let likesCounter;
+    numOfLikes = likesForComments.length ? (
+        <>
+            <i className="fa-solid fa-thumbs-up"></i> {likesForComments.length}
+        </>
+    ) : null;
 
-    if(commentLikes.length){
-        likesCounter = <div id = "commentlikesContainer">
-        <i className="fa-solid fa-thumbs-up"></i> {commentLikes.length} 
-        </div>
+    const userLiked = likesForComments.some((like) => like.userId === user.id )
+    const likeByUser = likesForComments.find((like) => like.userId === user.id)
+
+    function handleUnlikeClick(e) {
+        e.preventDefault();
+
+        dispatch(deleteLike(likeByUser.id))
     }
 
-    const likesBool = commentLikes.some((like) => like.userId === user.id )
-    const userLike = commentLikes.find((like) => like.userId === user.id)
+    function handleLikeClick(e) {
+        e.preventDefault();
 
-    const handleUnlikeClick = ()=>{
-        dispatch(deleteLike(userLike.id))
-    }
-
-    const handleLikeClick = ()=>{
         let like = {
             userId: user.id,
             likeableId: comment.id,
@@ -37,12 +40,11 @@ const OneComment = ({comment}) => {
         dispatch(createLike(like))
     }
     
-    let likesButton
-    if (likesBool){
-        likesButton = <p onClick={handleUnlikeClick} id ="commentsunlike" >Like</p>
-    }else{
-        likesButton = <p onClick={handleLikeClick} id ="commentslike"> Like</p>
-    }
+    const likeButton = userLiked ? (
+        <p onClick={handleUnlikeClick}>Like</p>
+    ) : (
+        <p onClick={handleLikeClick}>Like</p>
+    );
 
     function handleDelete(e){
         e.preventDefault();
@@ -68,8 +70,8 @@ const OneComment = ({comment}) => {
                 {user.id === comment.userId && <button onClick={handleDelete}>Delete</button>}
             </div>
 
-            <div>{likesCounter}</div>
-            {likesButton}
+            <div>{numOfLikes}</div>
+            {likeButton}
 
         </div>
     )

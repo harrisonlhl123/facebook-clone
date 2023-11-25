@@ -13,23 +13,27 @@ const OnePost = ({post}) => {
     const user = useSelector((state) => state.session.user);
     const postUserId = post.authorId
     const postUser = useSelector(getUser(postUserId))
-    let postLikes = useSelector(getPostLikes(post.id))
-    let likesCounter;
+    let likesForPost = useSelector(getPostLikes(post?.id))
+    let numOfLikes;
 
-    if (postLikes.length){
-        likesCounter = <div id = "likescounterContainer">
-        <i className="fa-solid fa-thumbs-up"></i> {postLikes.length} 
-        </div>
+    numOfLikes = likesForPost.length ? (
+        <>
+            <i className="fa-solid fa-thumbs-up"></i> {likesForPost.length}
+        </>
+    ) : null;
+
+    const userliked = likesForPost.some((like) => like.userId === user.id )
+    const likeByUser = likesForPost.find((like) => like.userId === user.id)
+
+    function handleUnlikeClick(e) {
+        e.preventDefault();
+
+        dispatch(deleteLike(likeByUser.id))
     }
 
-    const likesBool = postLikes.some((like) => like.userId === user.id )
-    const userLike = postLikes.find((like) => like.userId === user.id)
+    function handleLikeClick(e) {
+        e.preventDefault();
 
-    const handleUnlikeClick = ()=>{
-        dispatch(deleteLike(userLike.id))
-    }
-
-    const handleLikeClick = ()=>{
         let like = {
             userId: user.id,
             likeableId: post.id,
@@ -38,19 +42,15 @@ const OnePost = ({post}) => {
         dispatch(createLike(like))
     }
 
-    let likesButton
-    if (likesBool){
-        likesButton = <p onClick={handleUnlikeClick} id ="postsUnlike" >Like</p>
-    }else{
-        likesButton = <p onClick={handleLikeClick} id ="postsLike"> Like</p>
-    }
-
-
+    const likeButton = userliked ? (
+        <p onClick={handleUnlikeClick}>Like</p>
+    ) : (
+        <p onClick={handleLikeClick}>Like</p>
+    );
 
     function handleDelete(e){
         e.preventDefault();
 
-        
         if (post.authorId === user.id) {
             dispatch(deletePost(post.id))
         }
@@ -76,10 +76,10 @@ const OnePost = ({post}) => {
             <br></br>
 
             <div id="likes-counter-container">
-                {likesCounter}
+                {numOfLikes}
             </div>
 
-            <button id="like-button">{likesButton}</button>
+            <button id="like-button">{likeButton}</button>
 
             <br></br>
 
