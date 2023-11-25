@@ -78,8 +78,15 @@
     color: #1877f2;
 }
 
-#like-button {
-    padding-bottom: 10px;
+.like-button-container {
+    display: flex;
+    align-items: center;
+}
+  
+.like-button-container img {
+    width: 30px;
+    margin-right: 5px;
+    padding-top: 10px;
 }
 
 #like-button:hover {

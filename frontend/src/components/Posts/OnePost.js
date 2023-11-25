@@ -7,6 +7,9 @@ import { getUser } from '../../store/users';
 import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
 import { getPostLikes, deleteLike, createLike } from "../../store/likes";
+import likeButtonSVG from "../images/svg/likeButtonSVG.svg"
+
+
 
 const OnePost = ({post}) => {
     const dispatch = useDispatch();
@@ -79,7 +82,10 @@ const OnePost = ({post}) => {
                 {numOfLikes}
             </div>
 
-            <button id="like-button">{likeButton}</button>
+            <button className="like-button-container">
+                <img src={likeButtonSVG} alt="Like Icon" />
+                {likeButton}
+            </button>
 
             <br></br>
 
