@@ -81,22 +81,25 @@ const OnePost = ({post}) => {
                 </div>
             </div>
 
-            <button id="like-button-post" onClick={userliked ? handleUnlikeClick : handleLikeClick}>
-                <i className="fa-solid fa-thumbs-up" style={likeButtonStyle}></i>
-                <p style={likeButtonStyle}>Like</p>
-            </button>
+            <div id="like-comment-post">
+                <button id="like-button-post" onClick={userliked ? handleUnlikeClick : handleLikeClick}>
+                    <i className="fa-solid fa-thumbs-up" style={likeButtonStyle}></i>
+                    <p style={likeButtonStyle}>Like</p>
+                </button>
 
-            <button
-                id="comment-button-post"
-                onClick={() => {
-                    const commentsSection = document.getElementById(`comments-section-${post.id}`);
-                    if (commentsSection) {
-                    commentsSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }}
-                >
-                Comment
-            </button>
+                <button
+                    id="comment-button-post"
+                    onClick={() => {
+                        const commentsSection = document.getElementById(`comments-section-${post.id}`);
+                        if (commentsSection) {
+                            commentsSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }}
+                    >
+                    <i class="fa-regular fa-comment"></i>
+                    Comment
+                </button>
+            </div>
 
             <br></br>
 

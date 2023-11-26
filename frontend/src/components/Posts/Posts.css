@@ -87,7 +87,19 @@
     padding-top: 15px;
 }
 
+#comment-button-post i{
+    width: 30px;
+    padding-top: 15px;
+}
+
 #post-comment-separator {
     border-bottom: 1px solid grey;
+}
+
+#like-comment-post {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid grey;
+    padding-bottom: 15px;
 }
 
