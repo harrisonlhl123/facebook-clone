@@ -7,7 +7,6 @@ import { getUser } from '../../store/users';
 import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
 import { getPostLikes, deleteLike, createLike } from "../../store/likes";
-import likeButtonSVG from "../images/svg/likeButtonSVG.svg"
 
 
 
@@ -45,11 +44,9 @@ const OnePost = ({post}) => {
         dispatch(createLike(like))
     }
 
-    const likeButton = userliked ? (
-        <p onClick={handleUnlikeClick}>Like</p>
-    ) : (
-        <p onClick={handleLikeClick}>Like</p>
-    );
+    const likeButtonStyle = {
+        color: userliked ? 'blue' : 'grey',
+    };
 
     function handleDelete(e){
         e.preventDefault();
@@ -61,30 +58,44 @@ const OnePost = ({post}) => {
 
     return(
         <div className='one-post'>
-            <div className="post-info">
-                <div className="post-profile-pic">
-                    <img src={`${post?.pfp}`} />
+            <div id="post-comment-separator">
+                <div className="post-info">
+                    <div className="post-profile-pic">
+                        <img src={`${post?.pfp}`} />
+                    </div>
+                    <h3>{`${post.author} ${post.author2}`}</h3>
                 </div>
-                <h3>{`${post.author} ${post.author2}`}</h3>
+
+                <p id="posts-body">{post.body}</p>
+
+                {post.photo && (
+                    <div className="post-photo-container">
+                        <img src={`${post.photo}`} id="post-photo" />
+                    </div>
+                )}
+
+                <br></br>
+
+                <div id="likes-counter-post">
+                    {numOfLikes}
+                </div>
             </div>
 
-            <p id="posts-body">{post.body}</p>
+            <button id="like-button-post" onClick={userliked ? handleUnlikeClick : handleLikeClick}>
+                <i className="fa-solid fa-thumbs-up" style={likeButtonStyle}></i>
+                <p style={likeButtonStyle}>Like</p>
+            </button>
 
-            {post.photo && (
-                <div className="post-photo-container">
-                    <img src={`${post.photo}`} id="post-photo" />
-                </div>
-            )}
-
-            <br></br>
-
-            <div id="likes-counter-container">
-                {numOfLikes}
-            </div>
-
-            <button className="like-button-container">
-                <img src={likeButtonSVG} alt="Like Icon" />
-                {likeButton}
+            <button
+                id="comment-button-post"
+                onClick={() => {
+                    const commentsSection = document.getElementById(`comments-section-${post.id}`);
+                    if (commentsSection) {
+                    commentsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }}
+                >
+                Comment
             </button>
 
             <br></br>
@@ -98,7 +109,10 @@ const OnePost = ({post}) => {
             <br></br>
 
             <AllComments postId={post.id}/>
-            <MakeComments postId={post.id}/>
+            <div id={`comments-section-${post.id}`}>
+                <MakeComments postId={post.id} />
+            </div>
+            {/* <MakeComments postId={post.id}/> */}
         </div>
     )
 }

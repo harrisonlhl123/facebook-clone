@@ -11,7 +11,7 @@
 
 #posts-body {
     color: black;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 #text-area-post {
@@ -25,7 +25,6 @@
 }
 
 #make-post {
-    /* border: 1px solid red; */
     width: 610px;
     display: flex;
     align-items: flex-start;
@@ -74,24 +73,21 @@
     max-height: 100%; /* Ensure the image doesn't exceed its container */
   }
 
-#likes-counter-container i {
+#likes-counter-post {
     color: #1877f2;
 }
 
-.like-button-container {
+#like-button-post {
     display: flex;
     align-items: center;
 }
   
-.like-button-container img {
+#like-button-post i {
     width: 30px;
-    margin-right: 5px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
-#like-button:hover {
-    cursor: pointer;
-    background-color: #f0f0f0;
-    /* Add any other styles you'd like for the hover effect */
+#post-comment-separator {
+    border-bottom: 1px solid grey;
 }
 

@@ -8,6 +8,7 @@
     margin-bottom: 10px;
     padding-left: 10px;
     padding-bottom: 20px;
+    position: relative;
 }
 
 #comment-info {
@@ -66,4 +67,27 @@
     padding-left: 10px;
     padding-top: 10px;
     background-color: rgb(231, 230, 230);
+}
+
+#likes-counter-comment {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #1877f2;
+}
+
+#like-button-comment {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+#like-button-comment {
+    display: flex;
+    align-items: center;
+}
+  
+#like-button-comment i {
+    width: 30px;
+    padding-top: 15px;
 }

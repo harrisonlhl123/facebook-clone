@@ -39,12 +39,16 @@ const OneComment = ({comment}) => {
         }
         dispatch(createLike(like))
     }
+
+    const likeButtonStyle = {
+        color: userLiked ? 'blue' : 'grey',
+    };
     
-    const likeButton = userLiked ? (
-        <p onClick={handleUnlikeClick}>Like</p>
-    ) : (
-        <p onClick={handleLikeClick}>Like</p>
-    );
+    // const likeButton = userLiked ? (
+    //     <p onClick={handleUnlikeClick}>Like</p>
+    // ) : (
+    //     <p onClick={handleLikeClick}>Like</p>
+    // );
 
     function handleDelete(e){
         e.preventDefault();
@@ -70,8 +74,14 @@ const OneComment = ({comment}) => {
                 {user.id === comment.userId && <button onClick={handleDelete}>Delete</button>}
             </div>
 
-            <div>{numOfLikes}</div>
-            {likeButton}
+            <div id="likes-counter-comment">
+                {numOfLikes}
+            </div>
+
+            <button id="like-button-comment" onClick={userLiked ? handleUnlikeClick : handleLikeClick}>
+                <i className="fa-solid fa-thumbs-up" style={likeButtonStyle}></i>
+                <p style={likeButtonStyle}>Like</p>
+            </button>
 
         </div>
     )
