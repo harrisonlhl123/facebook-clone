@@ -118,10 +118,10 @@ const OnePost = ({post}) => {
             <br></br>
 
             <AllComments postId={post.id}/>
+
             <div id={`comments-section-${post.id}`}>
                 <MakeComments postId={post.id} />
             </div>
-            {/* <MakeComments postId={post.id}/> */}
         </div>
     )
 }

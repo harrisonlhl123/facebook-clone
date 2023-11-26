@@ -27,7 +27,7 @@ export const getPostLikes = postId => state => Object.values(state.likes)
     .filter(like => like.likeableId === postId && like.likeableType === 'Post');
 
 
-    export const getCommentLikes = commentId => state => Object.values(state.likes)
+export const getCommentLikes = commentId => state => Object.values(state.likes)
     .filter(like => like.likeableId === commentId && like.likeableType === 'Comment');
 
 

@@ -6,9 +6,9 @@ import { fetchLikes } from "../../store/likes"
 import "./Posts.css"
 
 
-function AllPosts() {
+function AllPosts({posts}) {
     const dispatch = useDispatch();
-    const posts = useSelector(getPosts);
+    // const posts = useSelector(getPosts);
 
     useEffect(() => {
         dispatch(fetchPosts());
@@ -18,7 +18,7 @@ function AllPosts() {
     return(
         <>
             <ul>
-                {Object.values(posts).reverse().map(post => {
+                {posts && Object.values(posts).reverse().map(post => {
                     return <OnePost post={post} key={post.id}/>
                 })}
             </ul>

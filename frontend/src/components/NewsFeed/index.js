@@ -4,10 +4,12 @@ import MakePosts from "../Posts/MakePosts"
 import "./NewsFeed.css"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import ContactsList from "../Friends/ContactsList"
+import { getPosts } from "../../store/posts"
 // import FriendsList from "../Friends/FriendsList"
 
-
 function NewsFeed() {
+    let allPosts = useSelector(getPosts)
+    
     const currentUser = useSelector(state => state.session.user)
     if (!currentUser) return <Redirect to="/login" />;
     return (
@@ -28,7 +30,7 @@ function NewsFeed() {
                 </div>
                 <div id="posts-and-posting">
                     <MakePosts />
-                    <AllPosts />
+                    <AllPosts posts={allPosts}/>
                 </div>
                 <div id="friends">
                     <p>Contacts</p>
