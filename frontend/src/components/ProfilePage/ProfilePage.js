@@ -48,8 +48,6 @@ const ProfilePage = () => {
                 </div>
             </div>
             <div className="clearfix"></div>
-
-            {/* <Link to="/">Back</Link> */}
         </div>
     )
 }
