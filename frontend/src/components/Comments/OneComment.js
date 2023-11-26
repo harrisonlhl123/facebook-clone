@@ -69,9 +69,16 @@ const OneComment = ({comment}) => {
 
             <p id="comment-body">{comment.body}</p>
 
-            <div id="comments-edit-delete-buttons">
-                {user.id === comment.userId && <EditCommentsModal commentId={comment.id}/>}
-                {user.id === comment.userId && <button onClick={handleDelete}>Delete</button>}
+            <div id="dropdown-container">
+                {user.id === comment.userId && (
+                <div className="dropdown">
+                    <button className="dropbtn">...</button>
+                    <div className="dropdown-content">
+                    <EditCommentsModal commentId={comment.id} />
+                    <button onClick={handleDelete}>Delete</button>
+                    </div>
+                </div>
+                )}
             </div>
 
             <div id="likes-counter-comment">

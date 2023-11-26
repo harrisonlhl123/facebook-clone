@@ -21,6 +21,7 @@ function MakePosts() {
     function handleSubmit(e) {
         e.preventDefault();
         // const authorId = user.id;
+        setBody("");
         dispatch(createPost({body}));
     }
 
