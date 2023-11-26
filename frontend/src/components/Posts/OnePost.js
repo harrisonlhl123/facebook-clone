@@ -103,10 +103,16 @@ const OnePost = ({post}) => {
 
             <br></br>
 
-            <div id="edit-and-delete-buttons">
-                {user.id === post.authorId && <EditPostsModal postId={post.id}/>}
-
-                {user.id === post.authorId && <button onClick={handleDelete}>Delete</button>}
+            <div id="edit-and-delete-container">
+                {user.id === post.authorId && (
+                    <div className="dropdown">
+                    <button className="dropbtn">...</button>
+                    <div className="dropdown-content">
+                        <EditPostsModal postId={post.id} />
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
+                    </div>
+                )}
             </div>
 
             <br></br>
