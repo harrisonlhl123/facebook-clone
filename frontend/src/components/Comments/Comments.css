@@ -116,6 +116,7 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
+    padding-left: 0px;
 }
 
 #like-button-comment {
