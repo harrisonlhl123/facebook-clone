@@ -24,7 +24,7 @@ function AllComments({postId}) {
     return(
         <>
             <ul>
-                {comments?.map(comment => {
+                {comments?.reverse().map(comment => {
                     if (comment) {
                         return <OneComment comment={comment} key={comment?.id}/>
                     }

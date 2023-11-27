@@ -6,12 +6,14 @@
     background-color: white;
     margin-bottom: 10px;
     padding-left: 10px;
-    padding-bottom: 20px;
+    padding-right: 10px;
+    /* padding-bottom: 20px; */
+    position: relative;
 }
 
 #posts-body {
     color: black;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 #text-area-post {
@@ -25,7 +27,6 @@
 }
 
 #make-post {
-    /* border: 1px solid red; */
     width: 610px;
     display: flex;
     align-items: flex-start;
@@ -38,10 +39,46 @@
     margin-left: auto;
 }
 
-#edit-and-delete-buttons {
-    display: flex;
-    justify-content: flex-start;
+#edit-and-delete-container {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: transparent;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 .post-info {
     display: flex;
@@ -73,3 +110,34 @@
     max-width: 100%; /* Ensure the image doesn't exceed its container */
     max-height: 100%; /* Ensure the image doesn't exceed its container */
   }
+
+#likes-counter-post {
+    color: #1877f2;
+}
+
+#like-button-post {
+    display: flex;
+    align-items: center;
+}
+  
+#like-button-post i {
+    width: 30px;
+    padding-top: 15px;
+}
+
+#comment-button-post i{
+    width: 30px;
+    padding-top: 15px;
+}
+
+#post-comment-separator {
+    border-bottom: 1px solid grey;
+}
+
+#like-comment-post {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid grey;
+    padding-bottom: 15px;
+}
+

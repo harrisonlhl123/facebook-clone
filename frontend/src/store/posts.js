@@ -22,8 +22,10 @@ const removePost = postId => ({
 
 export const getPost = postId => state => state.posts ? state.posts[postId] : null;
 
-
 export const getPosts = state => state.posts ? state.posts : [];
+
+export const getUserPosts = userId => state => Object.values(state.posts)
+    .filter(post => post.authorId == userId)
 
 export const fetchPosts = () => async (dispatch) => {
     const response = await csrfFetch('/api/posts');

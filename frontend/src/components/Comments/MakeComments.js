@@ -11,7 +11,6 @@ function MakeComments({postId}) {
     const userId = currentUser?.id
     const user = useSelector(getUser(userId))
 
-
     const [body, setBody] = useState("");
 
     function changeBody(e) {

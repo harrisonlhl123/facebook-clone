@@ -6,11 +6,15 @@ import FriendsList from '../Friends/FriendsList';
 import MakePosts from '../Posts/MakePosts';
 import AllPosts from '../Posts/AllPosts';
 import "./ProfilePage.css";
+import { getUserPosts } from '../../store/posts';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
+    //profile page user
     const { userId } = useParams();
     const user = useSelector(getUser(userId));
+    let userPosts = useSelector(getUserPosts(userId))
+
     
     useEffect(() => {
         dispatch(fetchUser(userId));
@@ -40,7 +44,7 @@ const ProfilePage = () => {
                 </div>
                 <div id="profile-right">
                     <MakePosts />
-                    <AllPosts />
+                    <AllPosts posts={userPosts}/>
                 </div>
             </div>
             <div className="clearfix"></div>
