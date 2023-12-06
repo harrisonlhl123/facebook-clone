@@ -20,8 +20,8 @@ import gamingButton from "../../components/images/svg/gamingButton.svg"
 function Navigation() {
   let sessionUser = useSelector(state => state.session.user);
   // const currentUser = useSelector((state) => state.session.user);
-  const userId = sessionUser?.id
-  const user = useSelector(getUser(userId))
+  // const userId = sessionUser?.id
+  // const user = useSelector(getUser(userId))
 
   let sessionLinks;
   if (sessionUser) {
@@ -39,7 +39,7 @@ function Navigation() {
             <img src={groupButton} style={{width: "30px"}}></img>
             <img src={gamingButton} style={{width: "30px"}}></img> */}
           </div>
-          <ProfileButton user={user} />
+          <ProfileButton user={sessionUser} />
         </div>
         {/* <NewsFeed /> */}
       </>

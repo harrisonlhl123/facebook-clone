@@ -8,8 +8,8 @@ import "./Posts.css"
 function MakePosts() {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
-    const userId = currentUser?.id
-    const user = useSelector(getUser(userId))
+    // const userId = currentUser?.id
+    // const user = useSelector(getUser(userId))
 
 
     const [body, setBody] = useState("");
@@ -28,7 +28,7 @@ function MakePosts() {
     return(
         <div id="make-post">
             <div className="post-profile-pic">
-                <img src={`${user?.pfp}`} />
+                <img src={`${currentUser?.pfp}`} />
             </div>
             <form onSubmit={handleSubmit} >
                 <label>
