@@ -16,20 +16,38 @@
 
 #friends-list-profile {
     width: 50px;
-    border-radius: 50%;
+    border-radius: 8px;
 }
 
 #friend-container {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 10px;
+    /* border: 1px solid red; */
+}
+
+#friend-container img {
+    width: 100%;
 }
 
 #contact-container {
     display: flex;
     align-items: center;
     padding-bottom: 10px;
+}
+
+#friend-container a {
+    text-decoration: none;
+}
+
+#friend-name-profile {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
 }
 
 #contact-list-newsfeed {
@@ -41,4 +59,14 @@
 #contact-friends-list {
     list-style-type: none;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+#contact-container a {
+    text-decoration: none;
+}
+
+#friend-name-contact {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
 }

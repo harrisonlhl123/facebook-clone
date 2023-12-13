@@ -23,7 +23,9 @@ const ContactsList = () => {
                         <div id="contact-container">
                             <img src={`${friend?.pfp}`} id="contact-list-newsfeed" alt="Friend" />
                             <Link to={`/users/${friend?.id}`}>
-                            {friend?.firstName} {friend?.lastName}
+                                <div id="friend-name-contact">
+                                    {friend?.firstName} {friend?.lastName}
+                                </div>
                             </Link>
                         </div>
                     </li>

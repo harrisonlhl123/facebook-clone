@@ -1,14 +1,12 @@
 #profile-page {
-    max-width: 900px; /* Set the maximum width for the profile page */
-    margin: 0 auto; /* Center the profile page */
-    padding: 20px; /* Add padding for space */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px; 
 }
   
 
 #cover-photo {
     text-align: center;
-    /* padding: 20px; */
-    /* border: 1px solid red; */
     height: 300px;
     position: relative;
     z-index: 1;
@@ -32,8 +30,6 @@
 #profile-pic {
     margin-top: -40px;
     border-radius: 50%;
-    /* padding: 20px; */
-    /* border: 1px solid red; */
     position: relative; 
     z-index: 2;
     overflow: hidden;
@@ -47,7 +43,7 @@
 }
   
 #profile-info h1 {
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
 #profile-container {
@@ -58,24 +54,31 @@
     width: 40%;
     float: left;
     padding: 20px;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #bio {
     background-color: white;
+    padding: 1px 10px 20px 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#bio > p {
+    color: black;
 }
 
 #profile-friends-list {
     background-color: white;
+    border-radius: 8px;
 }
   
 #profile-right {
     width: 60%;
     float: left;
-    padding: 20px; /* Adjust as needed */
-    /* border: 1px solid red; */
+    padding: 20px;
 }
   
-/* Clear the float to ensure proper layout */
 .clearfix::after {
     content: "";
     clear: both;

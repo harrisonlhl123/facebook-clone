@@ -21,9 +21,11 @@ const FriendsList = () => {
             {friends?.length > 0 &&
                 friends?.map((friend, index) => (
                 <div id="friend-container" key={friend?.id}>
-                    <img src={`${friend?.pfp}`} id="friends-list-profile" alt={`Friend ${index + 1}`} />
-                    <Link to={`/users/${friend?.id}`} id="contact-friends-list">
-                    {friend?.firstName} {friend?.lastName}
+                    <Link to={`/users/${friend?.id}`}>
+                        <img src={`${friend?.pfp}`} id="friends-list-profile" alt={`Friend ${index + 1}`} />
+                        <div id="friend-name-profile">
+                            {friend?.firstName} {friend?.lastName}
+                        </div>
                     </Link>
                 </div>
                 ))}
