@@ -29,7 +29,8 @@ require "open-uri"
         last_name: Faker::Name.last_name,
         birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
         gender: ['Male', 'Female'].sample,
-        password: 'password'
+        password: 'password',
+        bio: "Hello, I'm a user of this awesome platform!"
         )
       end
 
@@ -40,6 +41,11 @@ require "open-uri"
           io: URI.open("https://instabook-seeds.s3.amazonaws.com/default.png"), 
           filename: "default.png"
         )
+
+        user.cover.attach(
+          io: URI.open("https://instabook-seeds.s3.amazonaws.com/cover-photo.jpeg"),
+          filename: "cover-photo.jpeg"
+        )
       end
       
       demoUser = User.create!(
@@ -48,7 +54,8 @@ require "open-uri"
           last_name: 'Liang',
           birthday: Date.new(2000, 1, 1),
           gender: 'Male',
-          password: 'password'
+          password: 'password',
+          bio: "Hello, I'm a user of this awesome platform!"
       )
   
       demoUser.pfp.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
@@ -73,16 +80,41 @@ require "open-uri"
     catPost.photo.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
 
  
+    # users = User.all
+
+    # users.each_with_index do |user, index|
+    #   # Connect each user with the next user
+    #   friend = users[(index + 1) % users.length]
+    
+    #   # Create friendships (initiator and receiver perspectives)
+    #   Friend.create!(user: user, friend: friend)
+    #   Friend.create!(user: friend, friend: user)
+    # end    
+
     users = User.all
 
     users.each_with_index do |user, index|
       # Connect each user with the next user
       friend = users[(index + 1) % users.length]
-    
+
       # Create friendships (initiator and receiver perspectives)
       Friend.create!(user: user, friend: friend)
       Friend.create!(user: friend, friend: user)
-    end 
+    end
+
+    # Manually create additional friendships for the demo user
+    demo_user = User.find_by(id: 11)
+
+    # Connect the demo user with every other user
+    users.each do |user|
+      next if user == demo_user || demo_user.friends.include?(user)
+
+      # Create friendships (initiator and receiver perspectives)
+      Friend.create!(user: demo_user, friend: user)
+      Friend.create!(user: user, friend: demo_user)
+    end
+
+    
     
     Comment.create!(
       user_id: 3,

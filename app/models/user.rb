@@ -8,6 +8,7 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { in: 6..255 }, allow_nil: true
     validates :first_name, :last_name, :birthday, :email, :gender, presence: true
+    validates :bio, length: { maximum: 100 }
 
     before_validation :ensure_session_token
 
