@@ -36,7 +36,7 @@ const ProfilePage = () => {
             <div id="profile-container">
                 <div id="profile-left">
                     <div id="bio">
-                        <h3>Bio will be here</h3>
+                        <h3>{`${user?.bio}`}</h3>
                     </div>
                     <div id="profile-friends-list">
                         <FriendsList />
