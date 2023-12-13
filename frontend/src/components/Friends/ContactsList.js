@@ -21,8 +21,8 @@ const ContactsList = () => {
                 {friends?.map((friend) => (
                     <li key={friend?.id} id="contact-friends-list">
                         <div id="contact-container">
-                            <img src={`${friend?.pfp}`} id="contact-list-newsfeed" alt="Friend" />
                             <Link to={`/users/${friend?.id}`}>
+                                <img src={`${friend?.pfp}`} id="contact-list-newsfeed" alt="Friend" />
                                 <div id="friend-name-contact">
                                     {friend?.firstName} {friend?.lastName}
                                 </div>
