@@ -79,37 +79,28 @@ require "open-uri"
 
     catPost.photo.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
 
- 
-    # users = User.all
-
-    # users.each_with_index do |user, index|
-    #   # Connect each user with the next user
-    #   friend = users[(index + 1) % users.length]
-    
-    #   # Create friendships (initiator and receiver perspectives)
-    #   Friend.create!(user: user, friend: friend)
-    #   Friend.create!(user: friend, friend: user)
-    # end    
+    11.times do |index|
+      Post.create!(
+        body: "Random post #{index + 1} on Instabook!",
+        author_id: index + 1
+      )
+    end  
 
     users = User.all
 
     users.each_with_index do |user, index|
-      # Connect each user with the next user
+
       friend = users[(index + 1) % users.length]
 
-      # Create friendships (initiator and receiver perspectives)
       Friend.create!(user: user, friend: friend)
       Friend.create!(user: friend, friend: user)
     end
 
-    # Manually create additional friendships for the demo user
     demo_user = User.find_by(id: 11)
 
-    # Connect the demo user with every other user
     users.each do |user|
       next if user == demo_user || demo_user.friends.include?(user)
 
-      # Create friendships (initiator and receiver perspectives)
       Friend.create!(user: demo_user, friend: user)
       Friend.create!(user: user, friend: demo_user)
     end
