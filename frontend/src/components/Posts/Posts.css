@@ -85,6 +85,13 @@
     align-items: center;
 }
 
+.post-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
 .post-profile-pic {
     margin-right: 10px;
     border-radius: 50%;

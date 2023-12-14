@@ -7,7 +7,7 @@ import { getUser } from '../../store/users';
 import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
 import { getPostLikes, deleteLike, createLike } from "../../store/likes";
-
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const OnePost = ({post}) => {
@@ -60,10 +60,12 @@ const OnePost = ({post}) => {
         <div className='one-post'>
             <div id="post-comment-separator">
                 <div className="post-info">
-                    <div className="post-profile-pic">
-                        <img src={`${post?.pfp}`} />
-                    </div>
-                    <h3>{`${post.author} ${post.author2}`}</h3>
+                    <Link to={`/users/${postUserId}`} className="post-link">
+                        <div className="post-profile-pic">
+                            <img src={`${post?.pfp}`} />
+                        </div>
+                        <h3>{`${post.author} ${post.author2}`}</h3>
+                    </Link>
                 </div>
 
                 <p id="posts-body">{post.body}</p>

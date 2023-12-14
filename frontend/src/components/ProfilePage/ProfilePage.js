@@ -13,6 +13,7 @@ const ProfilePage = () => {
     //profile page user
     const { userId } = useParams();
     const user = useSelector(getUser(userId));
+    const currentUser = useSelector((state) => state.session.user);
     let userPosts = useSelector(getUserPosts(userId))
 
     
@@ -44,7 +45,8 @@ const ProfilePage = () => {
                     </div>
                 </div>
                 <div id="profile-right">
-                    <MakePosts />
+                    {currentUser && currentUser.id === user.id && <MakePosts />}
+                    {/* <MakePosts /> */}
                     <AllPosts posts={userPosts}/>
                 </div>
             </div>
