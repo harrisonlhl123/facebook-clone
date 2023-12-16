@@ -29,8 +29,8 @@ const OnePost = ({post}) => {
         </>
     ) : null;
 
-    const userliked = likesForPost.some((like) => like.userId === user.id )
-    const likeByUser = likesForPost.find((like) => like.userId === user.id)
+    const userliked = likesForPost.some((like) => like.userId === user?.id )
+    const likeByUser = likesForPost.find((like) => like.userId === user?.id)
 
     function handleUnlikeClick(e) {
         e.preventDefault();
@@ -71,7 +71,7 @@ const OnePost = ({post}) => {
                         </div>
                         <h3>{`${postUser?.firstName} ${postUser?.lastName}`}</h3>
                     </Link>
-                    {postUser.id !== postRecipient.id && (
+                    {postRecipient && postUser.id !== postRecipient.id && (
                         <>
                             <i class="fa-solid fa-arrow-right" id="arrow-font"></i>
                             <Link to={`/users/${feedId}`} className="post-link">
@@ -122,7 +122,7 @@ const OnePost = ({post}) => {
             <br></br>
 
             <div id="edit-and-delete-container">
-                {user.id === post.authorId && (
+                {user?.id === post.authorId && (
                     <div className="dropdown">
                     <button className="dropbtn">...</button>
                     <div className="dropdown-content">

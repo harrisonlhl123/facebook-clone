@@ -70,7 +70,7 @@ const OneComment = ({comment}) => {
             <p id="comment-body">{comment.body}</p>
 
             <div id="dropdown-container">
-                {user.id === comment.userId && (
+                {user?.id === comment.userId && (
                 <div className="dropdown">
                     <button className="dropbtn">...</button>
                     <div className="dropdown-content">
