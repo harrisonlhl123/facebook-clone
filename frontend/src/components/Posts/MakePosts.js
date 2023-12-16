@@ -21,8 +21,11 @@ function MakePosts({feedId}) {
     function handleSubmit(e) {
         e.preventDefault();
         // const authorId = user.id;
+
+        const postFeedId = feedId || currentUser?.id;
+
         setBody("");
-        dispatch(createPost({body, feed_id: feedId}));
+        dispatch(createPost({body, feed_id: postFeedId}));
     }
 
     return(
