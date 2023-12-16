@@ -64,25 +64,36 @@ require "open-uri"
 
     Post.create!(
       body: "First post on Instabook!",
-      author_id: 1
+      author_id: 1,
+      feed_id: 1
     )
 
     Post.create!(
       body: "Happy Thanksgiving!",
-      author_id: 2
+      author_id: 2,
+      feed_id: 2
     )
 
+    
     catPost = Post.create!(
       body: "Look at this cat!",
-      author_id: 2
+      author_id: 2,
+      feed_id: 2
     )
-
+      
     catPost.photo.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
+      
+    Post.create!(
+      body: "Happy Birthday!",
+      author_id: 5,
+      feed_id: 6
+    )
 
     11.times do |index|
       Post.create!(
         body: "Random post #{index + 1} on Instabook!",
-        author_id: index + 1
+        author_id: index + 1,
+        feed_id: index + 1
       )
     end  
 
