@@ -45,8 +45,8 @@ const ProfilePage = () => {
                     </div>
                 </div>
                 <div id="profile-right">
-                    {currentUser && currentUser.id === user.id && <MakePosts />}
-                    {/* <MakePosts /> */}
+                    {/* {currentUser && currentUser.id === user?.id && <MakePosts />} */}
+                    <MakePosts feedId={userId}/>
                     <AllPosts posts={userPosts}/>
                 </div>
             </div>

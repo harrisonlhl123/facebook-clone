@@ -25,7 +25,7 @@ export const getPost = postId => state => state.posts ? state.posts[postId] : nu
 export const getPosts = state => state.posts ? state.posts : [];
 
 export const getUserPosts = userId => state => Object.values(state.posts)
-    .filter(post => post.authorId == userId)
+    .filter(post => post.authorId == userId || post.feedId == userId)
 
 export const fetchPosts = () => async (dispatch) => {
     const response = await csrfFetch('/api/posts');
@@ -46,17 +46,18 @@ export const fetchPost = (postId) => async (dispatch) => {
 }
 
 export const createPost = (post) => async (dispatch) => {
+    const { body, feed_id } = post;
     const response = await csrfFetch('/api/posts', {
         method: 'POST',
-        body: JSON.stringify(post)
+        body: JSON.stringify({ body, feed_id })
         // headers: {
         //     "Content-Type": "application/json"
         // }
     });
 
     if (response.ok){
-        const post = await response.json();
-        dispatch(receivePost(post));
+        const createdPost = await response.json();
+        dispatch(receivePost(createdPost));
     }
 }
 

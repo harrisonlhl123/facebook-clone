@@ -5,7 +5,7 @@ import { getUser } from '../../store/users';
 import "./Posts.css"
 
 
-function MakePosts() {
+function MakePosts({feedId}) {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
     // const userId = currentUser?.id
@@ -21,8 +21,11 @@ function MakePosts() {
     function handleSubmit(e) {
         e.preventDefault();
         // const authorId = user.id;
+
+        const postFeedId = feedId || currentUser?.id;
+
         setBody("");
-        dispatch(createPost({body}));
+        dispatch(createPost({body, feed_id: postFeedId}));
     }
 
     return(

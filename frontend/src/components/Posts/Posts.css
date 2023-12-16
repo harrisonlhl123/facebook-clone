@@ -92,12 +92,17 @@
     color: inherit;
 }
 
+#arrow-font {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .post-profile-pic {
     margin-right: 10px;
     border-radius: 50%;
     position: relative; 
     overflow: hidden;
-    width: 50px;
+    width: 30px;
 }
 
 .post-profile-pic img {
