@@ -20,7 +20,6 @@ const OnePost = ({post}) => {
     const postRecipient = useSelector(getUser(feedId));
 
 
-
     let likesForPost = useSelector(getPostLikes(post?.id))
     let numOfLikes;
 
@@ -68,11 +67,21 @@ const OnePost = ({post}) => {
                 <div className="post-info">
                     <Link to={`/users/${postUserId}`} className="post-link">
                         <div className="post-profile-pic">
-                            <img src={`${post?.pfp}`} />
+                            <img src={`${postUser?.pfp}`} />
                         </div>
-                        {/* <h3>{`${post.author} ${post.author2}`}</h3> */}
-                        <h3>{`${postUser?.firstName} ${postUser?.lastName} > ${postRecipient?.firstName} ${postRecipient?.lastName}`}</h3>
+                        <h3>{`${postUser?.firstName} ${postUser?.lastName}`}</h3>
                     </Link>
+                    {postUser.id !== postRecipient.id && (
+                        <>
+                            <i class="fa-solid fa-arrow-right" id="arrow-font"></i>
+                            <Link to={`/users/${feedId}`} className="post-link">
+                                <div className="post-profile-pic">
+                                    <img src={`${postRecipient?.pfp}`} />
+                                </div>
+                                <h3>{`${postRecipient?.firstName} ${postRecipient?.lastName}`}</h3>
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 <p id="posts-body">{post.body}</p>
