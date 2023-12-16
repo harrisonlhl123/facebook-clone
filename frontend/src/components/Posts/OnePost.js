@@ -15,6 +15,12 @@ const OnePost = ({post}) => {
     const user = useSelector((state) => state.session.user);
     const postUserId = post.authorId
     const postUser = useSelector(getUser(postUserId))
+
+    const feedId = post.feedId;
+    const postRecipient = useSelector(getUser(feedId));
+
+
+
     let likesForPost = useSelector(getPostLikes(post?.id))
     let numOfLikes;
 
@@ -64,7 +70,8 @@ const OnePost = ({post}) => {
                         <div className="post-profile-pic">
                             <img src={`${post?.pfp}`} />
                         </div>
-                        <h3>{`${post.author} ${post.author2}`}</h3>
+                        {/* <h3>{`${post.author} ${post.author2}`}</h3> */}
+                        <h3>{`${postUser?.firstName} ${postUser?.lastName} > ${postRecipient?.firstName} ${postRecipient?.lastName}`}</h3>
                     </Link>
                 </div>
 
