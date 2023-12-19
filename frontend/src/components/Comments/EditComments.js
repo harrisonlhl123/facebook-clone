@@ -31,7 +31,6 @@ const EditComments = ({commentId, setShowModal}) => {
             } else {
                 history.push(`/users/${feedId}`);
             }
-            // history.push("/")
         });
     }
 
