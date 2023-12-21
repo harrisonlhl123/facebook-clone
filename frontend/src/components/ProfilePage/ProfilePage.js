@@ -31,9 +31,6 @@ const ProfilePage = () => {
     const handleFriend = (e) => {
         e.preventDefault();
 
-        // const userId = currentUser.id;
-        // const friendId = parseInt(userId);
-
         return dispatch(createFriendThunk({userId: currentUser.id, friendId: userId}))
     }
 
@@ -52,13 +49,18 @@ const ProfilePage = () => {
                 </div>
             </div>
 
-            <div className='friendButtonContainer'>
-                {/* {currentUser.id !== parseInt(userId) ?  */}
-                    {/* currentFriends ? */}
-                    <button onClick={handleUnFriend} className='friendButton'>Unfriend</button> :
-                    <button onClick={handleFriend} className='friendButton'>Friend</button> : 
-                    {/* " " } */}
+            <div>
+                {currentUser && currentUser.id != userId && (
+                    <>
+                        {user?.friendIds?.includes(currentUser.id) ? (
+                            <button onClick={handleUnFriend} className='friendButton'>Unfriend</button>
+                        ) : (
+                            <button onClick={handleFriend} className='friendButton'>Friend</button>
+                        )}
+                    </>
+                )}
             </div>
+
 
             <div id="profile-container">
                 <div id="profile-left">
