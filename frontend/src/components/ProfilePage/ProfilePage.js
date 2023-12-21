@@ -42,25 +42,28 @@ const ProfilePage = () => {
             <div id="cover-photo">
                 <img src={`${user?.cover}`} />
             </div>
-            <div id="profile-info-container">
-                <div id="profile-pic">
-                    <img src={`${user?.pfp}`} />
-                </div>
-                <div id="profile-info">
-                    <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
-                </div>
-            </div>
 
-            <div>
-                {currentUser && currentUser.id != userId && (
-                    <>
-                        {user?.friendIds?.includes(currentUser.id) ? (
-                            <button onClick={handleUnFriend} className='friendButton'>Unfriend</button>
-                        ) : (
-                            <button onClick={handleFriend} className='friendButton'>Friend</button>
-                        )}
-                    </>
-                )}
+            <div id="profile-info-and-friend">
+                <div id="profile-info-container">
+                    <div id="profile-pic">
+                        <img src={`${user?.pfp}`} />
+                    </div>
+                    <div id="profile-info">
+                        <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
+                    </div>
+                </div>
+
+                <div>
+                    {currentUser && currentUser.id != userId && (
+                        <>
+                            {user?.friendIds?.includes(currentUser.id) ? (
+                                <button onClick={handleUnFriend} className='friendButton'>Unfriend</button>
+                            ) : (
+                                <button onClick={handleFriend} className='friendButton'>Friend</button>
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
 
 
