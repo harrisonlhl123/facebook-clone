@@ -19,6 +19,12 @@
     height: 100%;
     object-fit: cover;
 }
+
+#profile-info-and-friend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
   
 #profile-info-container {
     display: flex;
@@ -48,6 +54,20 @@
 
 #profile-container {
     display: flex;
+}
+
+.friendButton {
+    background-color: #42b72a;
+    color: white;
+    border: 1px solid rgb(236, 226, 226);
+    border-radius: 4px;
+    cursor: pointer;
+    height: 30px;
+    font-weight: bold;
+}
+
+.friendButton:hover {
+    background-color: #71c560;
 }
   
 #profile-left {
