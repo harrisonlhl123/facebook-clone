@@ -22,16 +22,18 @@ const ProfilePage = () => {
         dispatch(fetchUser(userId));
     }, [userId]);
 
-    const handleUnFriend = (e) => {
+    const handleUnFriend = async (e) => {
         e.preventDefault();
         
-        return(dispatch(deleteFriendThunk(parseInt(userId), currentUser.id)));
+        await dispatch(deleteFriendThunk(parseInt(userId), currentUser.id));
+        dispatch(fetchUser(userId));
     }
 
-    const handleFriend = (e) => {
+    const handleFriend = async (e) => {
         e.preventDefault();
 
-        return dispatch(createFriendThunk({userId: currentUser.id, friendId: userId}))
+        await dispatch(createFriendThunk({userId: currentUser.id, friendId: userId}));
+        dispatch(fetchUser(userId));
     }
 
 
