@@ -7,6 +7,7 @@ import MakePosts from '../Posts/MakePosts';
 import AllPosts from '../Posts/AllPosts';
 import "./ProfilePage.css";
 import { getUserPosts } from '../../store/posts';
+import { createFriendThunk, deleteFriendThunk } from '../../store/friends';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,22 @@ const ProfilePage = () => {
         dispatch(fetchUser(userId));
     }, [userId]);
 
+    const handleUnFriend = (e) => {
+        e.preventDefault();
+        
+        return(dispatch(deleteFriendThunk(parseInt(userId), currentUser.id)));
+    }
+
+    const handleFriend = (e) => {
+        e.preventDefault();
+
+        // const userId = currentUser.id;
+        // const friendId = parseInt(userId);
+
+        return dispatch(createFriendThunk({userId: currentUser.id, friendId: userId}))
+    }
+
+
     return (
         <div id="profile-page">
             <div id="cover-photo">
@@ -34,6 +51,15 @@ const ProfilePage = () => {
                     <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
                 </div>
             </div>
+
+            <div className='friendButtonContainer'>
+                {/* {currentUser.id !== parseInt(userId) ?  */}
+                    {/* currentFriends ? */}
+                    <button onClick={handleUnFriend} className='friendButton'>Unfriend</button> :
+                    <button onClick={handleFriend} className='friendButton'>Friend</button> : 
+                    {/* " " } */}
+            </div>
+
             <div id="profile-container">
                 <div id="profile-left">
                     <div id="bio">
