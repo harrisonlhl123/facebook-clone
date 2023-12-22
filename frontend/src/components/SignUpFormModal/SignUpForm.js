@@ -36,14 +36,19 @@ function SignUpForm() {
       // Format the birthday before dispatching
       const formattedBirthday = `${birthday.year}-${birthday.month}-${birthday.day}`;
 
-      await dispatch(sessionActions.signup({
+      const userData = {
         email,
         first_name,
         last_name,
         gender,
         password,
         birthday: formattedBirthday,
-      }));
+        pfp: "https://instabook-seeds.s3.amazonaws.com/default.png", // Replace with the actual link
+        cover: "https://instabook-seeds.s3.amazonaws.com/cover-photo.jpeg", // Replace with the actual link
+        bio: "Hello, I'm a user of this awesome platform!",
+      };
+
+      await dispatch(sessionActions.signup(userData));
 
       // Handle successful signup if needed
     } catch (res) {
