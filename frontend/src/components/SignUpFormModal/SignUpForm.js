@@ -43,8 +43,6 @@ function SignUpForm() {
         gender,
         password,
         birthday: formattedBirthday,
-        pfp: "https://instabook-seeds.s3.amazonaws.com/default.png", // Replace with the actual link
-        cover: "https://instabook-seeds.s3.amazonaws.com/cover-photo.jpeg", // Replace with the actual link
         bio: "Hello, I'm a user of this awesome platform!",
       };
 
