@@ -71,7 +71,7 @@ const OnePost = ({post}) => {
                         </div>
                         <h3>{`${postUser?.firstName} ${postUser?.lastName}`}</h3>
                     </Link>
-                    {postRecipient && postUser.id !== postRecipient.id && (
+                    {postRecipient && postUser?.id !== postRecipient?.id && (
                         <>
                             <i class="fa-solid fa-arrow-right" id="arrow-font"></i>
                             <Link to={`/users/${feedId}`} className="post-link">
