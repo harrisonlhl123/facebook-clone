@@ -1,10 +1,10 @@
 div.search-dropdown {
     position:absolute;
-    top: 50px;
-    left: 2px;
+    top: 70px;
+    left: 60px;
     border: none;
     border-radius: 10px;
-    width: 250px;
+    width: 200px;
     height: auto;
     box-shadow: 8px 8px 40px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
     display:none;
@@ -29,7 +29,7 @@ div.search-dropdown ul{
 
 div.search-dropdown li{
     list-style: none;
-    margin: 0;
+    margin: 5px;
     padding: 0;
     border-radius: 8px;
 }
@@ -58,15 +58,16 @@ div.search-dropdown img {
 
 
 input#userSearch{
-    width: 90%;
+    width: 150px;
     height: 35px;
-    border-radius: 20px;
+    border-radius: 8px;
     margin-left: 5px;
     background-color: #f0f2f5;
     border: none;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    padding: 0 0 2px 35px;
+    padding: 0 0 0 7px;
+    text-align: left;
   }
   
   input#userSearch:focus {
@@ -81,11 +82,11 @@ input#userSearch{
     display: flex;
   }
 
-  #magnify-icon{
+  /* #magnify-icon{
     color: rgb(102, 99, 99);
     position: absolute;
     top: 17px;
     left: 70px;
     background:none;
-  }
+  } */
   

@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSearchResults, fetchSearchResults } from "../../store/search";
-// import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavSearch.css";
 
 function NavSearch() {
@@ -34,7 +32,7 @@ function NavSearch() {
 
   const dropDown = () => {
     if (searchText === "") {
-      return <p>Wow, such empty!</p>;
+      // return <p>Wow, such empty!</p>;
     } else if (searchResults.length === 0) {
       return <p>No results found.</p>;
     } else {
@@ -59,7 +57,6 @@ function NavSearch() {
 
   return (
     <div>
-    {/* //   <FontAwesomeIcon id="magnify-icon" icon={faMagnifyingGlass} /> */}
       <input
         id="userSearch"
         placeholder="Search Instabook"
