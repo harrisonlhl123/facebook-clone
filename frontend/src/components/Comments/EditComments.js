@@ -36,14 +36,26 @@ const EditComments = ({commentId, setShowModal}) => {
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <label>Body
-                    <textarea onChange={changeBody} value={body}></textarea>
-                </label>
+            <div className="update-post-container">
+                <h1 className="update-post-title">Edit Comment</h1>
+                <form onSubmit={handleSubmit} className="update-post-form">
+                    <label className="update-post-label">
+                        <textarea
+                            onChange={changeBody}
+                            value={body}
+                            className="update-post-textarea"
+                        />
+                    </label>
 
-                <input type="submit" value={"Update Comment"} />
-            </form>
+                    <input
+                        type="submit"
+                        value="Update Comment"
+                        className="update-post-submit-btn"
+                    />
+                </form>
+            </div>
         </>
+
     )
 }
 
