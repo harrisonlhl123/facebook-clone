@@ -8,6 +8,7 @@ import AllComments from '../Comments/AllComments';
 import MakeComments from '../Comments/MakeComments';
 import { getPostLikes, deleteLike, createLike } from "../../store/likes";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState } from 'react';
 
 
 const OnePost = ({post}) => {
@@ -51,6 +52,16 @@ const OnePost = ({post}) => {
 
     const likeButtonStyle = {
         color: userliked ? 'blue' : 'grey',
+    };
+
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+      setIsDropdownVisible(!isDropdownVisible);
+    };
+
+    const closeDropdown = () => {
+        setIsDropdownVisible(false);
     };
 
     function handleDelete(e){
@@ -124,9 +135,11 @@ const OnePost = ({post}) => {
             <div id="edit-and-delete-container">
                 {user?.id === post.authorId && (
                     <div className="dropdown">
-                    <button className="dropbtn">...</button>
-                    <div className="dropdown-content">
-                        <EditPostsModal postId={post.id} />
+                    <button className="dropbtn" onClick={toggleDropdown}>
+                        ...
+                    </button>
+                    <div className={`dropdown-content ${isDropdownVisible ? 'visible' : ''}`}>
+                        <EditPostsModal postId={post.id} onClose={closeDropdown}/>
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                     </div>

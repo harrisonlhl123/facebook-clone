@@ -26,7 +26,7 @@
     padding-bottom: 20px;
 }
 
-#dropdown-container {
+  #dropdown-container {
     position: absolute;
     top: 0;
     right: 0;
@@ -55,6 +55,10 @@
     z-index: 1;
   }
   
+  .dropdown-content.visible {
+    display: block;
+  }
+  
   .dropdown-content button {
     color: black;
     padding: 12px 16px;
@@ -63,9 +67,6 @@
     cursor: pointer;
   }
   
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
 
 #make-comment {
     /* border: 1px solid red; */
