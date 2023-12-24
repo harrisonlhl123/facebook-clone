@@ -22,6 +22,12 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def search
+    query = params[:query]
+    @users = User.where('first_name ILIKE ? OR last_name ILIKE ?', "%#{query}%", "%#{query}%").limit(8)
+    render :search    
+  end
+
   private
 
   def user_params

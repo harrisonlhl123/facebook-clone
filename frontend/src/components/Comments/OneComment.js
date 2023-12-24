@@ -5,6 +5,7 @@ import "./Comments.css"
 import EditCommentsModal from './EditCommentsModal';
 import { getUser } from '../../store/users';
 import { getCommentLikes,deleteLike,createLike } from "../../store/likes"
+import { useState } from 'react';
 
 const OneComment = ({comment}) => {
     const dispatch = useDispatch();
@@ -43,12 +44,16 @@ const OneComment = ({comment}) => {
     const likeButtonStyle = {
         color: userLiked ? 'blue' : 'grey',
     };
-    
-    // const likeButton = userLiked ? (
-    //     <p onClick={handleUnlikeClick}>Like</p>
-    // ) : (
-    //     <p onClick={handleLikeClick}>Like</p>
-    // );
+
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+      setIsDropdownVisible(!isDropdownVisible);
+    };
+
+    const closeDropdown = () => {
+        setIsDropdownVisible(false);
+    };
 
     function handleDelete(e){
         e.preventDefault();
@@ -71,13 +76,15 @@ const OneComment = ({comment}) => {
 
             <div id="dropdown-container">
                 {user?.id === comment.userId && (
-                <div className="dropdown">
-                    <button className="dropbtn">...</button>
-                    <div className="dropdown-content">
-                    <EditCommentsModal commentId={comment.id} />
-                    <button onClick={handleDelete}>Delete</button>
+                    <div className="dropdown">
+                    <button className="dropbtn" onClick={toggleDropdown}>
+                        ...
+                    </button>
+                    <div className={`dropdown-content ${isDropdownVisible ? 'visible' : ''}`}>
+                        <EditCommentsModal commentId={comment.id} onClose={closeDropdown}/>
+                        <button onClick={handleDelete}>Delete</button>
                     </div>
-                </div>
+                    </div>
                 )}
             </div>
 

@@ -6,6 +6,7 @@ import usersReducer from './users';
 import commentsReducer from './comments';
 import likesReducer from './likes';
 import friendReducer from './friends';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
     session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     users: usersReducer,
     comments: commentsReducer,
     likes: likesReducer,
-    friends: friendReducer
+    friends: friendReducer,
+    search: searchReducer
 });
 
 let enhancer;

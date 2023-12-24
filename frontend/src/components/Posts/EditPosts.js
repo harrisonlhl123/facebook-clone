@@ -34,14 +34,24 @@ const EditPosts = ({postId, setShowModal}) => {
 
     return(
         <>
-            <h1>{"Update Post"}</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Body
-                    <textarea onChange={changeBody} value={body}></textarea>
-                </label>
+            <div className="update-post-container">
+                <h1 className="update-post-title">Update Post</h1>
+                <form onSubmit={handleSubmit} className="update-post-form">
+                    <label className="update-post-label">
+                        <textarea
+                            onChange={changeBody}
+                            value={body}
+                            className="update-post-textarea"
+                        />
+                    </label>
 
-                <input type="submit" value={"Update Post"} />
-            </form>
+                    <input
+                        type="submit"
+                        value="Update Post"
+                        className="update-post-submit-btn"
+                    />
+                </form>
+            </div>
         </>
     )
 }

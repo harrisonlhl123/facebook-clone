@@ -9,7 +9,7 @@ import NewsFeed from '../NewsFeed';
 import logo from "../images/logo.png"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { getUser } from '../../store/users';
-import SearchBar from './SearchBar';
+import NavSearch from './NavSearch';
 import homeButton from "../../components/images/svg/homeButton.svg"
 import tvButton from "../../components/images/svg/tvButton.svg"
 import marketButton from "../../components/images/svg/marketButton.svg"
@@ -30,7 +30,7 @@ function Navigation() {
         <div id="top-nav">
           <div className="left-section">
             <img src={logo} id="logo" alt="instabook logo" />
-            <SearchBar />
+            <NavSearch />
           </div>
           <div className='icon'>
             <Link to="/"><img src={homeButton} style={{width: "30px"}}></img></Link>
