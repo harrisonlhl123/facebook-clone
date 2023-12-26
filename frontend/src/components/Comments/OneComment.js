@@ -6,6 +6,7 @@ import EditCommentsModal from './EditCommentsModal';
 import { getUser } from '../../store/users';
 import { getCommentLikes,deleteLike,createLike } from "../../store/likes"
 import { useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const OneComment = ({comment}) => {
     const dispatch = useDispatch();
@@ -21,8 +22,8 @@ const OneComment = ({comment}) => {
         </>
     ) : null;
 
-    const userLiked = likesForComments.some((like) => like.userId === user.id )
-    const likeByUser = likesForComments.find((like) => like.userId === user.id)
+    const userLiked = likesForComments.some((like) => like.userId === user?.id )
+    const likeByUser = likesForComments.find((like) => like.userId === user?.id)
 
     function handleUnlikeClick(e) {
         e.preventDefault();
@@ -66,10 +67,12 @@ const OneComment = ({comment}) => {
     return(
         <div id="one-comment">
             <div id="comment-info">
-                <div className="comment-profile-pic">
-                    <img src={`${comment?.pfp}`}/>
-                </div>
-                <h4>{`${comment.user} ${comment.user2}`}</h4>
+                <Link to={`/users/${commentUserId}`} className="comment-link">
+                    <div className="comment-profile-pic">
+                        <img src={`${comment?.pfp}`}/>
+                    </div>
+                    <h4>{`${comment.user} ${comment.user2}`}</h4>
+                </Link>
             </div>
 
             <p id="comment-body">{comment.body}</p>

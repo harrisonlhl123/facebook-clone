@@ -104,3 +104,16 @@
   #logout-button:hover {
     background-color: #0056b3;
   }
+
+
+.user-link {
+  text-decoration: none;
+  color: inherit;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.user-link:hover {
+  background-color: rgb(233, 226, 226);
+}

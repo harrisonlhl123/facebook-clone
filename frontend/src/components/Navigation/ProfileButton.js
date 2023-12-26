@@ -43,8 +43,8 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <div className="user-container">
-            <img src={`${user?.pfp}`} id="small-profile-pic" alt="Profile" />
             <Link to={`/users/${user?.id}`} className="user-link">
+            <img src={`${user?.pfp}`} id="small-profile-pic" alt="Profile" />
               <li>{`${user?.firstName} ${user?.lastName}`}</li>
             </Link>
           </div>
