@@ -1,6 +1,6 @@
 # Instabook
 
-[Instabook](https://instabook-x26u.onrender.com) is a Facebook clone where users can create accounts, login, post, comment, and go to each others' walls.
+[Instabook](https://instabook-clone.onrender.com/) is a Facebook clone where users can create accounts, login, post, comment, and go to each others' walls.
 
 ## Technologies Used
 
