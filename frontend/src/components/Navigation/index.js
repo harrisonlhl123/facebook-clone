@@ -47,7 +47,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginPageForm />
+        {/* <LoginPageForm /> */}
         {/* <SignUpFormModal /> */}
         {/* <NavLink to="/login">Log In</NavLink> */}
       </>

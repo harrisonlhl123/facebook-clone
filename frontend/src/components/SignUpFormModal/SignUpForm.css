@@ -2,6 +2,7 @@ h1 {
     font-size: 32px;
     font-family: Helvetica, Arial, sans-serif;
     margin-bottom: 0;
+    padding-left: 10px;
 }
 
 p {
@@ -9,6 +10,11 @@ p {
     font-family: Helvetica, Arial, sans-serif;
     color: grey;
     margin-bottom: 0;
+    padding-left: 10px;
+}
+
+label {
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #create-button {
@@ -39,6 +45,8 @@ form {
     border-radius: 8px;
     border: 1px solid rgb(236, 226, 226);
     width: 150px;
+    padding-left: 10px;
+    font-size: 15px;
 }
   
 #signup-button {
@@ -52,10 +60,12 @@ form {
 }
 
 .email-password {
-    width: 320px;
+    width: 330px;
     height: 35px;
     border-radius: 8px;
     border: 1px solid rgb(236, 226, 226);
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 .birthday {
@@ -66,9 +76,11 @@ form {
 
 .birthday select{
     height: 35px;
-    width: 100px;
+    width: 105px;
     border-radius: 8px;
     border: 1px solid rgb(236, 226, 226);
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 .gender {
@@ -79,11 +91,13 @@ form {
 
 .gender label {
     height: 35px;
-    width: 100px;
+    width: 92px;
     border-radius: 8px;
     border: 1px solid rgb(236, 226, 226);
     display: flex;
     align-items: center;
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 #signup-errors {
