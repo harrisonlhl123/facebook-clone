@@ -5,7 +5,7 @@ import { getUser } from '../../store/users';
 import "./Posts.css"
 
 
-function MakePosts({feedId}) {
+function MakePosts({feedId, setShowModal}) {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
     // const userId = currentUser?.id
@@ -26,10 +26,12 @@ function MakePosts({feedId}) {
 
         setBody("");
         dispatch(createPost({body, feed_id: postFeedId}));
+
+        setShowModal(false);
     }
 
     return(
-        <div id="make-post">
+        <div className="make-post">
             <div className="post-profile-pic">
                 <img src={`${currentUser?.pfp}`} />
             </div>

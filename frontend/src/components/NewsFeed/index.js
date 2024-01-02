@@ -1,11 +1,10 @@
 import { Redirect, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import AllPosts from "../Posts/AllPosts"
-import MakePosts from "../Posts/MakePosts"
+import MakePostsModal from "../Posts/MakePostsModal"
 import "./NewsFeed.css"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import ContactsList from "../Friends/ContactsList"
 import { getPosts } from "../../store/posts"
-// import FriendsList from "../Friends/FriendsList"
 
 function NewsFeed() {
     let allPosts = useSelector(getPosts)
@@ -29,7 +28,7 @@ function NewsFeed() {
                     </div>
                 </div>
                 <div id="posts-and-posting">
-                    <MakePosts />
+                    <MakePostsModal />
                     <AllPosts posts={allPosts}/>
                 </div>
                 <div id="friends">

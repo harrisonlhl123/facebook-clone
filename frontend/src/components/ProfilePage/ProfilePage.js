@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, fetchUser } from '../../store/users';
 import FriendsList from '../Friends/FriendsList';
-import MakePosts from '../Posts/MakePosts';
+import MakePostsModal from '../Posts/MakePostsModal';
 import AllPosts from '../Posts/AllPosts';
 import "./ProfilePage.css";
 import { getUserPosts } from '../../store/posts';
@@ -79,7 +79,8 @@ const ProfilePage = () => {
                 </div>
                 <div id="profile-right">
                     {/* {currentUser && currentUser.id === user?.id && <MakePosts />} */}
-                    <MakePosts feedId={userId}/>
+                    {/* <MakePosts feedId={userId}/> */}
+                    <MakePostsModal feedId={userId}/>
                     <AllPosts posts={userPosts}/>
                 </div>
             </div>

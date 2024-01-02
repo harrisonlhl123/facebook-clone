@@ -26,7 +26,7 @@
     background-color: rgb(231, 230, 230);
 }
 
-#make-post {
+.make-post {
     width: 610px;
     display: flex;
     align-items: flex-start;
@@ -208,6 +208,14 @@
 
 .update-post-submit-btn:hover {
     background-color: #45a049;
+}
+
+#post-button {
+    width: 540px;
+    height: 30px;
+    border-radius: 8px;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: rgb(231, 230, 230);
 }
 
 
