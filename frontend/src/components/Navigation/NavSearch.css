@@ -12,6 +12,7 @@ div.search-dropdown {
     align-items: center;
     justify-content: space-around;
     background-color: #f8f8f8;
+    z-index: 3;
 }
 
 div.search-dropdown div {
