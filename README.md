@@ -16,13 +16,21 @@ This project uses React, Redux, Ruby on Rails, AWS S3, and PostgresSQL. It is ho
 
 ![plot](./demo-gifs/signing-up.gif)
 
-### Posting: Users can create a post. Additionally, users can edit and delete their own posts.
+### Posting: Users can post on the newsfeed or other users' walls. Additionally, users can edit and delete their own posts.
 
 ![plot](./demo-gifs/posting.gif)
 
-### Commenting: Users can comment on posts. Additionally, users can edit and delete their own comments.
+### Commenting and Liking: Users can like posts and comments. Users can also edit and delete their own comments.
 
-![plot](./demo-gifs/commenting.gif)
+![plot](./demo-gifs/Commenting.gif)
+
+### Friending: Users can friend and unfriend other users.
+
+![plot](./demo-gifs/Friending.gif)
+
+### Searching: Users can search each other.
+
+![plot](./demo-gifs/Searching.gif)
 
 ## Code Snippets
 
@@ -119,7 +127,7 @@ const ProfilePage = () => {
 
 ### Posts Reducer:
 
-This was very challenging because comments affect the posts. Thankfully, my instructor Steve is extremely knowledgeable and guided me through this.
+This was quite challenging because comments affect the posts.
 
 ```
 const postsReducer = (state = {}, action) => {
@@ -158,10 +166,4 @@ const postsReducer = (state = {}, action) => {
 
 ## Future Implementation
 
-+ Likes feature for posts and comments.
-
-+ Friending feature for users. Although users have friends by default, I'd like them to be able to add and remove each other.
-
 + Uploading pictures to Instabook for posts, profile pictures, and cover photos.
-
-+ Work on styling.
