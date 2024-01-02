@@ -22,7 +22,7 @@ This project uses React, Redux, Ruby on Rails, AWS S3, and PostgresSQL. It is ho
 
 ### Commenting and Liking: Users can like posts and comments. Users can also edit and delete their own comments.
 
-![plot](./demo-gifs/Commenting.gif)
+![plot](./demo-gifs/commenting.gif)
 
 ### Friending: Users can friend and unfriend other users.
 
