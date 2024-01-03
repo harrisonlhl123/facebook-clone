@@ -69,13 +69,15 @@ function MakePosts({feedId, setShowModal}) {
                 <div className="post-photo-container">
                     {photoURL && (
                     <>
-                        <img alt="" src={photoURL} id="preview" />
-                        <img
-                        onClick={handleRemovePhoto}
-                        id="remove-post-image"
-                        alt=""
-                        src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
-                        />
+                        <div className="image-preview">
+                            <img alt="" src={photoURL} id="preview" />
+                            <img
+                                onClick={handleRemovePhoto}
+                                id="remove-post-image"
+                                alt=""
+                                src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
+                            />
+                        </div>
                     </>
                     )}
                     <div className="post-photo-button">
@@ -84,7 +86,7 @@ function MakePosts({feedId, setShowModal}) {
                             type="file"
                             className="upload-image"
                             onChange={(e) => handleFile(e)}
-                    />
+                        />
                     </div>
                 </div>
 
