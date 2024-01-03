@@ -35,8 +35,36 @@
     border-radius: 8px;
 }
 
+.post-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.image-preview {
+    position: relative;
+}
+
+#preview {
+    max-width: 100%;
+}
+
+#remove-post-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
 #create-post-button {
     margin-left: auto;
+    margin-top: 10px;
 }
 
 #edit-and-delete-container {
