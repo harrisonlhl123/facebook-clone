@@ -75,9 +75,40 @@ textarea {
 }
 
 #create-post-button {
-    margin-left: auto;
-    margin-top: 10px;
+    margin: 10px auto; /* Center the button horizontally with top and bottom margin */
+    display: block; /* Ensure it's a block-level element for margin auto to work */
 }
+
+#create-post-button input {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.custom-upload-btn {
+    background-color: #1877f2;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.custom-upload-btn:hover {
+    background-color: #145993;
+}
+
+.upload-image {
+    display: none; /* Hide the default file input */
+}
+
 
 #edit-and-delete-container {
     position: absolute;

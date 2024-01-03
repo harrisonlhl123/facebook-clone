@@ -81,9 +81,12 @@ function MakePosts({feedId, setShowModal}) {
                     </>
                     )}
                     <div className="post-photo-button">
-                        Upload an Image <i className="fa-solid fa-image"></i>
+                        <label htmlFor="upload-image" className="custom-upload-btn">
+                            Upload an Image <i className="fa-solid fa-image"></i>
+                        </label>
                         <input
                             type="file"
+                            id="upload-image"
                             className="upload-image"
                             onChange={(e) => handleFile(e)}
                         />
