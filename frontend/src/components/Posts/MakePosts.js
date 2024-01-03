@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPost } from '../../store/posts';
+import { createPost, uploadPost } from '../../store/posts';
 import { getUser } from '../../store/users';
 import "./Posts.css"
 
@@ -8,8 +8,25 @@ import "./Posts.css"
 function MakePosts({feedId, setShowModal}) {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.session.user);
-    // const userId = currentUser?.id
-    // const user = useSelector(getUser(userId))
+
+    const [photoFile, setPhotoFile] = useState();
+    const [photoURL, setPhotoURL] = useState();
+
+    const handleRemovePhoto = (e) => {
+        e.preventDefault();
+        setPhotoFile(null);
+        setPhotoURL(null);
+      };
+    
+      const handleFile = (e) => {
+        const file = e.currentTarget.files[0];
+        setPhotoFile(file);
+        if (file) {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+          fileReader.onload = () => setPhotoURL(fileReader.result);
+        }
+      };
 
 
     const [body, setBody] = useState("");
@@ -24,9 +41,18 @@ function MakePosts({feedId, setShowModal}) {
 
         const postFeedId = feedId || currentUser?.id;
 
+        if (!photoURL) {
+            return dispatch(createPost({ body, feed_id: postFeedId }));
+          } else {
+            const newPost = new FormData();
+            newPost.append("post[body]", body);
+            // newPost.append("post[authorId]", authorId);
+            newPost.append("post[feed_id]", postFeedId);
+            newPost.append("post[photo]", photoFile);
+            dispatch(uploadPost({ newPost }));
+          }
+        
         setBody("");
-        dispatch(createPost({body, feed_id: postFeedId}));
-
         setShowModal(false);
     }
 
@@ -39,6 +65,28 @@ function MakePosts({feedId, setShowModal}) {
                 <label>
                     <textarea onChange={changeBody} value={body} placeholder="What's on your mind?" id="text-area-post"></textarea>
                 </label>
+
+                <div className="post-photo-container">
+                    {photoURL && (
+                    <>
+                        <img alt="" src={photoURL} id="preview" />
+                        <img
+                        onClick={handleRemovePhoto}
+                        id="remove-post-image"
+                        alt=""
+                        src="https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/zgulV2zGm8t.png"
+                        />
+                    </>
+                    )}
+                    <div className="post-photo-button">
+                        Upload an Image <i className="fa-solid fa-image"></i>
+                        <input
+                            type="file"
+                            className="upload-image"
+                            onChange={(e) => handleFile(e)}
+                    />
+                    </div>
+                </div>
 
                 <div id="create-post-button">
                     <input type="submit" value="Create Post" />

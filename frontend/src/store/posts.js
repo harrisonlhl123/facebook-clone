@@ -46,10 +46,10 @@ export const fetchPost = (postId) => async (dispatch) => {
 }
 
 export const createPost = (post) => async (dispatch) => {
-    const { body, feed_id } = post;
+    const { body, feed_id, photo } = post;
     const response = await csrfFetch('/api/posts', {
         method: 'POST',
-        body: JSON.stringify({ body, feed_id })
+        body: JSON.stringify({ body, feed_id, photo })
         // headers: {
         //     "Content-Type": "application/json"
         // }
@@ -87,6 +87,19 @@ export const deletePost = (postId) => async (dispatch) => {
         dispatch(removePost(postId));
     }
 }
+
+export const uploadPost = (post) => async (dispatch) => {
+    const res = await csrfFetch(`/api/posts`, {
+      method: "POST",
+      body: post.newPost,
+    });
+  
+    if (res.ok) {
+      let data = await res.json();
+      dispatch(receivePost(data));
+      return data;
+    }
+  };
 
 const postsReducer = (state = {}, action) => {
     const newState = {...state};
