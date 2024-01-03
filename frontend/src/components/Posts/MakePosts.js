@@ -57,7 +57,7 @@ function MakePosts({feedId, setShowModal}) {
     }
 
     return(
-        <div className="make-post">
+        <div className={`make-post ${photoURL ? 'with-image' : ''}`}>
             <div className="post-profile-pic">
                 <img src={`${currentUser?.pfp}`} />
             </div>
