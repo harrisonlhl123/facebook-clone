@@ -33,12 +33,8 @@
     padding: 10px;
     background-color: white;
     border-radius: 8px;
-    transition: height 0.3s ease;
+    /* transition: height 0.3s ease; */
     height: fit-content;
-}
-
-.make-post.with-image {
-    height: auto; /* Adjusted height when an image is attached */
 }
 
 .post-form {
@@ -58,6 +54,7 @@ textarea {
     overflow: hidden;
     border-radius: 8px;
     max-height: 800px;
+    max-width: 540px;
 }
 
 #preview {
@@ -153,6 +150,7 @@ textarea {
     position: relative; 
     overflow: hidden;
     width: 30px;
+    height: 30px;
 }
 
 .post-profile-pic img {
