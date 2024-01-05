@@ -8,11 +8,38 @@
     padding-top: 30px;
 }
   
-#socials, #friends {
+#friends {
     width: 15%;
-    /* border: 1px solid red; */
     padding: 10px;
 }
+
+#developer-links {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+
+#socials {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #socials div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #socials a {
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  #socials a:hover {
+    text-decoration: underline;
+  }
   
 #posts-and-posting {
     display: flex;

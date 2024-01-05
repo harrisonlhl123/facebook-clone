@@ -15,15 +15,31 @@ function NewsFeed() {
         <>
             <div id="main-feed">
                 <div id="socials">
-                    <div style={{ color: "gold", fontSize: "50px" }}>
-                        <a href="https://github.com/harrisonlhl123" target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-github"></i>
-                        </a>
+                    <div id="developer-links">
+                        Developer Links:
                     </div>
-                    <br></br>
-                    <div style={{ color: "gold", fontSize: "50px" }}>
+                    <div>
                         <a href="https://www.linkedin.com/in/harrison-l-2738bb103/" target="_blank" rel="noopener noreferrer">
                             <i className="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://harrisonlhl123.github.io/personal-website/" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-globe"></i>
+                            Portfolio Website
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/harrisonlhl123/facebook-clone" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-code"></i>
+                            Instabook Repo
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/harrisonlhl123" target="_blank" rel="noopener noreferrer">
+                            <i className="fa-brands fa-github"></i>
+                            GitHub
                         </a>
                     </div>
                 </div>
