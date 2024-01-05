@@ -42,7 +42,7 @@ function MakePosts({feedId, setShowModal}) {
         const postFeedId = feedId || currentUser?.id;
 
         if (!photoURL) {
-            return dispatch(createPost({ body, feed_id: postFeedId }));
+            dispatch(createPost({ body, feed_id: postFeedId }));
           } else {
             const newPost = new FormData();
             newPost.append("post[body]", body);
