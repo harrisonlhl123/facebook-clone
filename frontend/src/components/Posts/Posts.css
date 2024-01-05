@@ -117,6 +117,12 @@ textarea {
     right: 0;
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
 #dropdown-container {
     position: absolute;
     top: 0;

@@ -12,6 +12,8 @@ function MakePosts({feedId, setShowModal}) {
     const [photoFile, setPhotoFile] = useState();
     const [photoURL, setPhotoURL] = useState();
 
+    const [errorMessage, setErrorMessage] = useState("");
+
     const handleRemovePhoto = (e) => {
         e.preventDefault();
         setPhotoFile(null);
@@ -39,6 +41,14 @@ function MakePosts({feedId, setShowModal}) {
         e.preventDefault();
         // const authorId = user.id;
 
+        if (!body.trim()) {
+            // Set an error message
+            setErrorMessage("Please enter something in the post body");
+            return;
+        }
+
+        setErrorMessage("");
+
         const postFeedId = feedId || currentUser?.id;
 
         if (!photoURL) {
@@ -65,6 +75,12 @@ function MakePosts({feedId, setShowModal}) {
                 <label>
                     <textarea onChange={changeBody} value={body} placeholder="What's on your mind?" id="text-area-post"></textarea>
                 </label>
+
+                {errorMessage && (
+                    <div className="error-message">
+                        {errorMessage}
+                    </div>
+                )}
 
                 <div className="post-photo-container">
                     {photoURL && (
