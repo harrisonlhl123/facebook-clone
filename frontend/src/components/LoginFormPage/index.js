@@ -58,48 +58,77 @@ const LoginPageForm = () => {
     
 
     return (
-      <div id="login-container">
-        <div id="left-content">
-          <h1>instabook</h1>
-          <p>Connect with friends and the world around you on Instabook.</p>
+      <>
+        <div id="login-container">
+          <div id="left-content">
+            <h1>instabook</h1>
+            <p>Connect with friends and the world around you on Instabook.</p>
+          </div>
+          <div id="right-content">
+            <form onSubmit={handleSubmit}>
+              <ul>
+                {errors.map(error => <li id="login-errors" key={error}>{error}</li>)}
+              </ul>
+              <div className="login-email-password">
+                <label>
+                  {/* Email */}
+                  <input
+                    type="text"
+                    value={email}
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </label>
+                <label>
+                  {/* Password */}
+                  <input
+                    type="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </label>
+              </div>
+              <button type="submit" id="login-button">Log In</button>
+            </form>
+
+            <button type="button" id="demo-login-button" onClick={handleDemoLogin}>
+              Demo User
+            </button>
+
+            <SignUpFormModal />
+          </div>
         </div>
-        <div id="right-content">
-          <form onSubmit={handleSubmit}>
-            <ul>
-              {errors.map(error => <li id="login-errors" key={error}>{error}</li>)}
-            </ul>
-            <div className="login-email-password">
-              <label>
-                {/* Email */}
-                <input
-                  type="text"
-                  value={email}
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </label>
-              <label>
-                {/* Password */}
-                <input
-                  type="password"
-                  value={password}
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </label>
+
+        <div id="socials-login-page">
+            <div>
+                <a href="https://www.linkedin.com/in/harrison-l-2738bb103/" target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
             </div>
-            <button type="submit" id="login-button">Log In</button>
-          </form>
-
-          <button type="button" id="demo-login-button" onClick={handleDemoLogin}>
-            Demo User
-          </button>
-
-          <SignUpFormModal />
+            <div>
+                <a href="https://harrisonlhl123.github.io/personal-website/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-globe"></i>
+                    Harrison Liang
+                </a>
+            </div>
+            <div>
+                <a href="https://github.com/harrisonlhl123/facebook-clone" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-code"></i>
+                    Instabook Repo
+                </a>
+            </div>
+            <div>
+                <a href="https://github.com/harrisonlhl123" target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+            </div>
         </div>
-      </div>
+      </>
   );
 }
 

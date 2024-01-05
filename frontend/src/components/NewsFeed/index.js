@@ -27,7 +27,7 @@ function NewsFeed() {
                     <div>
                         <a href="https://harrisonlhl123.github.io/personal-website/" target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-globe"></i>
-                            Portfolio Website
+                            Harrison Liang
                         </a>
                     </div>
                     <div>
