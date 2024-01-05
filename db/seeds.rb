@@ -20,6 +20,20 @@ require "open-uri"
     ApplicationRecord.connection.reset_pk_sequence!('users')
   
     puts "Creating users..."
+
+    bios = [
+      "Connecting with friends and family. 🌟",
+      "Exploring new interests and hobbies. 🚀",
+      "Sharing moments that matter. ❤️",
+      "Making memories and enjoying life. 🌈",
+      "Meeting new people and building connections. 👋",
+      "Expressing thoughts and opinions. 🗣️",
+      "Loving every moment of this journey. 😊",
+      "Dreaming big and achieving goals. 🌠",
+      "Embracing the beauty of diversity. 🌍",
+      "Spreading positivity and kindness. ✨"
+    ]
+    
     
     # More users
     10.times do
@@ -30,7 +44,7 @@ require "open-uri"
         birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
         gender: ['Male', 'Female'].sample,
         password: 'password',
-        bio: "Hello, I'm a user of this awesome platform!"
+        bio: bios.sample
         )
       end
 
@@ -55,7 +69,7 @@ require "open-uri"
           birthday: Date.new(2000, 1, 1),
           gender: 'Male',
           password: 'password',
-          bio: "Hello, I'm a user of this awesome platform!"
+          bio: "Creating something special here, one day at a time! 😌"
       )
   
       demoUser.pfp.attach(io: URI.open("https://instabook-seeds.s3.amazonaws.com/cat.avif"), filename: "cat.avif")
