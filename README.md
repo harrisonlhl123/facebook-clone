@@ -1,6 +1,6 @@
 # Instabook
 
-[Instabook](https://instabook-clone.onrender.com/) is a Facebook clone where users can create accounts, login, post, comment, and go to each others' walls.
+[Instabook](https://instabook-clone.onrender.com/) is a Facebook clone where users can create accounts, login, post, comment, like, and go to each others' walls.
 
 ## Technologies Used
 
@@ -16,9 +16,9 @@ This project uses React, Redux, Ruby on Rails, AWS S3, and PostgresSQL. It is ho
 
 ![plot](./demo-gifs/signing-up.gif)
 
-### Posting: Users can post on the newsfeed or other users' walls. Additionally, users can edit and delete their own posts.
+### Posting: Users can post on the newsfeed or other users' walls. Users can optionally attach images to their posts. Lastly, users can edit and delete their own posts.
 
-![plot](./demo-gifs/posting.gif)
+![plot](./demo-gifs/posting-with-img.gif)
 
 ### Commenting and Liking: Users can like posts and comments. Users can also edit and delete their own comments.
 
@@ -34,95 +34,57 @@ This project uses React, Redux, Ruby on Rails, AWS S3, and PostgresSQL. It is ho
 
 ## Code Snippets
 
-### Making a Post:
-
-This was the first feature I implemented. It happened to be a full CRUD feature so I learned a lot from it. By doing this, it gave me the blueprint to do the other features in a more efficient manner.
-
-```
-function MakePosts() {
-    const dispatch = useDispatch();
-    const currentUser = useSelector((state) => state.session.user);
-    const userId = currentUser?.id
-    const user = useSelector(getUser(userId))
-
-
-    const [body, setBody] = useState("");
-
-    function changeBody(e) {
-        setBody(e.target.value);
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        setBody("");
-        dispatch(createPost({body}));
-    }
-
-    return(
-        <div id="make-post">
-            <div className="post-profile-pic">
-                <img src={`${user?.pfp}`} />
-            </div>
-            <form onSubmit={handleSubmit} >
-                <label>
-                    <textarea onChange={changeBody} value={body} placeholder="What's on your mind?" id="text-area-post"></textarea>
-                </label>
-
-                <div id="create-post-button">
-                    <input type="submit" value="Create Post" />
-                </div>
-            </form>
-        </div>
-    )
-}
-```
-
 ### Going to a user's profile:
 
 The user's profile really gave me insight on thinking about components, which is what React is all about.
 
 ```
-const ProfilePage = () => {
-    const dispatch = useDispatch();
-    const { userId } = useParams();
-    const user = useSelector(getUser(userId));
-    
-    useEffect(() => {
-        dispatch(fetchUser(userId));
-    }, [userId]);
+<div id="profile-page">
+    <div id="cover-photo">
+        <img src={`${user?.cover}`} />
+    </div>
 
-    return (
-        <div id="profile-page">
-            <div id="cover-photo">
-                <img src={`${user?.cover}`} />
+    <div id="profile-info-and-friend">
+        <div id="profile-info-container">
+            <div id="profile-pic">
+                <img src={`${user?.pfp}`} />
             </div>
-            <div id="profile-info-container">
-                <div id="profile-pic">
-                    <img src={`${user?.pfp}`} />
-                </div>
-                <div id="profile-info">
-                    <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
-                </div>
+            <div id="profile-info">
+                <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
             </div>
-            <div id="profile-container">
-                <div id="profile-left">
-                    <div id="bio">
-                        <h3>Bio will be here</h3>
-                    </div>
-                    <div id="profile-friends-list">
-                        <FriendsList />
-                    </div>
-                </div>
-                <div id="profile-right">
-                    <MakePosts />
-                    <AllPosts />
-                </div>
-            </div>
-            <div className="clearfix"></div>
         </div>
-    )
-}
+
+        <div>
+            {currentUser && currentUser.id != userId && (
+                <>
+                    {user?.friendIds?.includes(currentUser.id) ? (
+                        <button onClick={handleUnFriend} className='friendButton'>Unfriend</button>
+                    ) : (
+                        <button onClick={handleFriend} className='friendButton'>Friend</button>
+                    )}
+                </>
+            )}
+        </div>
+    </div>
+
+
+    <div id="profile-container">
+        <div id="profile-left">
+            <div id="bio">
+                <h3>Life Blurb 📸</h3>
+                <p>{`${user?.bio}`}</p>
+            </div>
+            <div id="profile-friends-list">
+                <FriendsList />
+            </div>
+        </div>
+        <div id="profile-right">
+            <MakePostsModal feedId={userId}/>
+            <AllPosts posts={userPosts}/>
+        </div>
+    </div>
+    <div className="clearfix"></div>
+</div>
 ```
 
 ### Posts Reducer:
@@ -163,7 +125,3 @@ const postsReducer = (state = {}, action) => {
     }
 }
 ```
-
-## Future Implementation
-
-+ Uploading pictures to Instabook for posts, profile pictures, and cover photos.
