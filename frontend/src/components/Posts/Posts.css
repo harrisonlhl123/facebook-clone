@@ -53,8 +53,9 @@ textarea {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    max-height: 400px;
-    max-width: 540px;
+    height: 350px;
+    width: 350px;
+    padding-bottom: 10px;
 }
 
 #preview {
