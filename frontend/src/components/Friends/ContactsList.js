@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ContactsList = () => {
 
-    const dispatch = useDispatch();
     const currentUserId = useSelector((state) => state.session.user.id);
-    const friends = useSelector(state =>  state.users[currentUserId]?.friendIds?.map((friendId) => {
+
+    const friends = useSelector(state =>  state.users[currentUserId]?.friends?.map((friendId) => {
         return state.users[friendId]
     }))
-
-    useEffect(() => {
-        dispatch(fetchFriends());
-    }, [dispatch]);
 
     return (
         <>

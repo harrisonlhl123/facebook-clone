@@ -5,12 +5,24 @@ import "./NewsFeed.css"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import ContactsList from "../Friends/ContactsList"
 import { getPosts } from "../../store/posts"
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { fetchUsers } from "../../store/users"
+import { fetchFriends } from "../../store/friends"
 
 function NewsFeed() {
-    let allPosts = useSelector(getPosts)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, []);
     
+    let allPosts = useSelector(getPosts)
     const currentUser = useSelector(state => state.session.user)
+    
+    
     if (!currentUser) return <Redirect to="/login" />;
+
     return (
         <>
             <div id="main-feed">

@@ -13,7 +13,14 @@ export const receiveUsers = users => ({
     users
 })
 
-export const getUser = userId => state => state.users ? state.users[userId] : null;
+// export const getUser = userId => state => state.users ? state.users[userId] : null;
+export const getUser = userId => state => {
+    if (state.users) {
+      const user = Object.values(state.users).find(user => user.id == userId);
+      return user ? { ...user } : null;
+    }
+    return null;
+};
 
 export const getUsers = state => state.users ? Object.values(state.users) : [];
 
